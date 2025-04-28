@@ -1,0 +1,66 @@
+.BlipDropdown-container {
+    position:    relative;
+    font-family: inherit;
+    height:      48px;
+    flex-grow:   1;
+    width:       calc(100% - 10px);
+
+    &:hover {
+        background: gray;
+        color:      white;
+    }
+
+    &:active:not(:disabled) {
+        box-shadow: none;
+        transform:  translateX(5px) translateY(5px);
+    }
+
+    &:disabled {
+        background: gray;
+        color:      lightgray;
+        cursor:     unset;
+    }
+
+    box-shadow:  5px 5px 0 0 darkgray;
+    margin:      10px 10px 10px 0;
+    font-weight: bold;
+    cursor:      pointer;
+    font-size:   16pt;
+    white-space: nowrap;
+    background:  none;
+    background:  white;
+    border:      none;
+    color:       black;
+    padding:     10px 20px;
+
+    display:     flex;
+
+    &.collapsed {
+        width:   0;
+        margin:  10px 0 10px 0;
+        padding: 0;
+    }
+
+}
+
+.BlipDropdown-size-square {
+    aspect-ratio: 1;
+}
+
+.BlipDropdown-size-auto {
+    width: auto;
+}
+
+.BlipDropdown-size-short {
+    width: 600px;
+}
+
+.BlipDropdown-size-full {
+    width: 100%;
+}
+
+.BlipDropdown-size-hidden {
+    width:   0;
+    margin:  10px 0;
+    padding: 0;
+}

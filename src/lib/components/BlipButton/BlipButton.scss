@@ -1,0 +1,56 @@
+.BlipButton {
+    position:    relative;
+    font-family: inherit;
+    height:      48px;
+
+    &:hover {
+        background: gray;
+        color:      white;
+    }
+
+    &:active:not(:disabled) {
+        box-shadow: none;
+        transform:  translateX(5px) translateY(5px);
+    }
+
+    &:disabled {
+        background: gray;
+        color:      lightgray;
+        cursor:     unset;
+    }
+
+    box-shadow:  5px 5px 0 0 darkgray;
+    margin:      10px 10px 10px 0;
+    font-weight: bold;
+    cursor:      pointer;
+    font-size:   16pt;
+    white-space: nowrap;
+    background:  none;
+    background:  white;
+    border:      none;
+    color:       black;
+    padding:     10px 20px;
+    width:       100%;
+    display:     block;
+
+    &.collapsed {
+        width:   0;
+        margin:  10px 0 10px 0;
+        padding: 0;
+    }
+
+}
+
+.BlipButton-size-square { aspect-ratio: 1; }
+
+.BlipButton-size-auto { width: auto; }
+
+.BlipButton-size-short { width: 600px; }
+
+.BlipButton-size-full { width: calc(100% - 5px); }
+
+.BlipButton-size-hidden {
+    width:   0;
+    margin:  10px 0;
+    padding: 0;
+}

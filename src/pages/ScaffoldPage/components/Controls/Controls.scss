@@ -1,0 +1,16 @@
+.Controls-container {
+    padding: 12px;
+
+    table.controls-table {
+        width:           100%;
+        border-collapse: collapse;
+
+        td {
+            padding:         12px 6px 6px 6px;
+            border-collapse: collapse;
+            vertical-align:  top;
+            border:          1px solid grey;
+        }
+    }
+
+}

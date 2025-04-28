@@ -1,0 +1,139 @@
+.BlipActionRow-container {
+}
+
+.BlipActionRow-row-content {
+    padding:         12px;
+    display:         flex;
+    flex-direction:  row;
+    align-items:     center;
+    justify-content: space-between;
+    flex-grow:       1;
+    overflow:        hidden;
+    z-index:         1;
+}
+
+.BlipActionRow-row {
+    position:        relative;
+    display:         flex;
+    flex-direction:  row;
+    justify-content: space-between;
+    align-items:     center;
+    margin-bottom:   10px;
+    width:           calc(100%);
+}
+
+$error-wave-color-1:   #ff5454;
+$error-wave-color-2:   #ff2a2a;
+$error-wave-color-3:   #ff8787;
+$error-wave-color-4:   #fc6060;
+
+
+$success-wave-color-1: #2dd71f;
+$success-wave-color-2: #6dfa21;
+$success-wave-color-3: #3a852b;
+$success-wave-color-4: #4dcc48;
+
+.BlipActionRow-row-gradient-success {
+    background: $success-wave-color-4;
+}
+
+.BlipActionRow-row-gradient-error {
+    background: $error-wave-color-4;
+}
+
+.BlipActionRow-row-gradient {
+    transition:       width 300ms ease-in-out;
+    width:            0;
+    transform-origin: left;
+    margin:           auto;
+    animation:        gradient 3s ease infinite;
+    background-size:  400% 400%;
+    position:         absolute;
+    left:             0;
+    bottom:           0;
+    top:              0;
+
+    display:          flex;
+    flex-direction:   row;
+    justify-content:  flex-end;
+    align-items:      center;
+    overflow:         hidden;
+
+    span {
+        opacity:         0;
+        animation:       1s fadeIn ease-in-out forwards;
+        animation-delay: 300ms;
+        padding:         12px;
+        position:        absolute;
+        font-weight:     bolder;
+    }
+}
+
+@keyframes gradient {
+    0% { background-position: 0 0; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0 0; }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.w1 {
+    stroke:    none;
+    opacity:   55%;
+    animation: move1 1s ease-in-out infinite;
+
+    &.success { fill: $success-wave-color-1; }
+
+    &.error { fill: $error-wave-color-1; }
+}
+
+.w2 {
+    stroke:    none;
+    fill:      $success-wave-color-2;
+    opacity:   35%;
+    transform: translate3d(0, 0, 0);
+    animation: move2 4s ease-in-out infinite;
+
+    &.success { fill: $success-wave-color-2; }
+
+    &.error { fill: $error-wave-color-2; }
+}
+
+.w3 {
+    stroke:    none;
+    fill:      $success-wave-color-3;
+    opacity:   30%;
+    transform: translate3d(0, 0, 0);
+    animation: move3 6s ease-in-out infinite;
+
+    &.success { fill: $success-wave-color-3; }
+
+    &.error { fill: $error-wave-color-3; }
+}
+
+@keyframes move1 {
+    0% { transform: translateX(-500px) scaleX(2.5); }
+    25% { transform: translateX(-100) scaleX(2.5); }
+    50% { transform: translateX(0) scaleX(2.5); }
+    75% { transform: translateX(-100) scaleX(2.5); }
+    100% { transform: translateX(-500px) scaleX(2.5); }
+}
+
+@keyframes move2 {
+    0% { transform: translateX(-600px) scaleX(3); }
+    25% { transform: translateX(-100) scaleX(2.5); }
+    50% { transform: translateX(0) scaleX(3); }
+    75% { transform: translateX(-100) scaleX(2.5); }
+    100% { transform: translateX(-600px) scaleX(3); }
+}
+
+@keyframes move3 {
+    0% { transform: translateX(-800px) scaleX(3); }
+    25% { transform: translateX(-100) scaleX(2.5); }
+    50% { transform: translateX(0) scaleX(3); }
+    75% { transform: translateX(-100) scaleX(2.5); }
+    100% { transform: translateX(-800px) scaleX(3); }
+}

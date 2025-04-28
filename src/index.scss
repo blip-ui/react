@@ -1,0 +1,51 @@
+*:before,
+*:after {
+    box-sizing: inherit;
+    margin:     0;
+    padding:    0;
+    border:     0;
+    outline:    0;
+}
+
+.Outside-Theme {
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    line-height: normal;
+    font-weight: normal;
+    font-size:   medium;
+
+    h3 {
+        padding-left: 12px;
+    }
+}
+
+html {
+    box-sizing:      border-box;
+    border-collapse: collapse;
+}
+
+body {
+    font-family:             "Courier New", monospace;
+    transform:               translateZ(0);
+    font-weight:             bold;
+    font-size:               16pt;
+    margin:                  0;
+    top:                     0;
+    left:                    0;
+    right:                   0;
+    bottom:                  0;
+    position:                absolute;
+    color:                   white;
+    background:              black;
+    -webkit-font-smoothing:  antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+a:-webkit-any-link {
+    color:           inherit;
+    text-decoration: none !important;
+
+    & :hover { color: inherit; }
+
+    &.active { color: inherit; }
+}

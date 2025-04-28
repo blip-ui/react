@@ -1,0 +1,107 @@
+$border-width: 2;
+
+.BlipTable-container {
+    position:       relative;
+    display:        flex;
+    flex-direction: column;
+    overflow:       hidden;
+    width:          100%;
+    height:         100%;
+}
+
+.BlipTable-table-wrapper {
+    flex-grow:     1;
+    overflow:      auto;
+    width:         100%;
+    border-bottom: #{$border-width * 2}px double white;
+}
+
+table.BlipTable-table {
+
+    td {
+        overflow-x:      hidden;
+        max-width:       500px;
+        text-overflow:   ellipsis;
+        white-space:     nowrap;
+        height:          36px;
+        padding:         0 10px;
+        text-align:      center;
+        border-left:     #{$border-width * 2}px double white;
+        border-collapse: separate;
+        border-spacing:  0;
+
+        &:last-child {
+            border-right: #{$border-width * 2}px double white;
+        }
+
+    }
+
+    th {
+        height:     36px;
+        position:   sticky;
+        top:        0;
+        background: black;
+        border:     none;
+        padding:    0 10px;
+
+        // New inner element for the border
+        &::before {
+            content:        "";
+            position:       absolute;
+            left:           0;
+            right:          0;
+            bottom:         0;
+            height:         50%; // Half height of the cell
+            border-bottom:  none;
+            border-left:    #{$border-width * 2}px double white;
+            border-top:     #{$border-width * 2}px double white;
+            pointer-events: none; // Allows clicking through
+        }
+
+        &:last-child::before {
+            border-right: #{$border-width * 2}px double white;
+            right:        0;
+        }
+
+        &:first-child::after {
+            left: -#{$border-width * 2}px;
+        }
+
+        &:last-child::after {
+            right: -#{$border-width * 2}px;
+        }
+
+        div {
+            display:         flex;
+            top:             0;
+            bottom:          0;
+            left:            0;
+            right:           0;
+            align-items:     center;
+            justify-content: center;
+
+            span {
+                white-space: nowrap;
+                background:  white;
+                color:       black;
+                padding:     0 5px;
+                z-index:     2;
+            }
+        }
+    }
+
+    width:           100%;
+    height:          auto;
+
+    border-collapse: separate;
+    border-spacing:  0;
+
+    tr:hover {
+        background: rgba(0, 0, 0, 0.3);
+        cursor:     pointer;
+    }
+}
+
+.BlipTable-selected {
+    background: black;
+}

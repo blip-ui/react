@@ -1,0 +1,35 @@
+.BlipInput-container {
+    display:   flex;
+    flex-grow: 1;
+
+    input[type="checkbox"] {
+        height: 22px;
+        width:  22px;
+        cursor: pointer;
+    }
+
+    input:not([type="checkbox"]) {
+        width:       calc(100% - 5px);
+        font-family: "Courier New", monospace;
+        outline:     none;
+        font-weight: bold;
+        box-shadow:  5px 5px 0 0 darkgray;
+        margin:      10px 10px 10px 0;
+        cursor:      text;
+        font-size:   inherit;
+        background:  white;
+        border:      none;
+        color:       black;
+        padding:     10px 20px;
+        display:     block;
+    }
+
+}
+
+.BlipInput-size-square { aspect-ratio: 1; }
+
+.BlipInput-size-auto { width: auto; }
+
+.BlipInput-size-short { width: 600px; }
+
+.BlipInput-size-full { width: calc(100% - 5px); }

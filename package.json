@@ -1,0 +1,57 @@
+{
+  "name": "@floframe/blip-lib",
+  "description": "React components for Blip",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "build:prod": "tsc -b --project tsconfig.deploy.json && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "buffer": "^6.0.3",
+    "luxon": "^3.4.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "clsx": "^2.1.1",
+    "font-awesome": "^4.7.0",
+    "@fortawesome/fontawesome-svg-core": "^6.1.2",
+    "@fortawesome/free-brands-svg-icons": "^6.1.2",
+    "@fortawesome/free-regular-svg-icons": "^6.1.2",
+    "@fortawesome/free-solid-svg-icons": "^6.1.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "google-ads-api": "^19.0.2-rest-beta",
+    "papaparse": "^5.5.2",
+    "@react-oauth/google": "^0.12.1",
+    "react-router-dom": "^7.4.0",
+    "sass": "^1.86.0",
+    "typescript": "~5.7.2",
+    "vite": "^5.3.1",
+    "@vitejs/plugin-react": "^4.3.1",
+    "jwt-decode": "^4.0.0",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "@eslint/js": "^9.21.0",
+    "@types/node": "^22.13.11",
+    "@types/luxon": "^3.4.2",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@types/papaparse": "^5.3.15",
+    "eslint": "^9.21.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "globals": "^15.15.0",
+    "typescript-eslint": "^8.24.1",
+    "postcss": "^8.5.3"
+  }
+}

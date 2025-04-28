@@ -1,0 +1,23 @@
+import React from 'react';
+
+import './App.scss';
+import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
+import ScaffoldPage from '@/pages/ScaffoldPage/ScaffoldPage.tsx';
+import { AppProvider } from '@/contexts';
+
+const App = (): React.ReactElement => {
+  return (
+    <main>
+      <AppProvider>
+        <Router>
+          <Routes>
+            <Route path="/test/*" element={ <ScaffoldPage/> }/>
+            <Route path="*" element={ <Navigate to={ '/test ' } replace={ true }/> }/>
+          </Routes>
+        </Router>
+      </AppProvider>
+    </main>
+  );
+};
+
+export default App;
