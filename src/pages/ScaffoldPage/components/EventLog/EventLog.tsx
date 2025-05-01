@@ -1,12 +1,8 @@
-import { useApp } from '@/contexts';
+import { useApp } from '@/pages/contexts';
 import React from 'react';
 
 const EventLog = (props: any) => {
   const { events } = useApp();
-
-  React.useEffect(() => {
-    console.log('events:', events);
-  }, [ events ]);
 
   return (
     <div className="EventLog-container">

@@ -7,15 +7,9 @@
     outline:    0;
 }
 
-.Outside-Theme {
-    font-family: "Helvetica Neue", Helvetica, sans-serif;
-    line-height: normal;
-    font-weight: normal;
-    font-size:   medium;
-
-    h3 {
-        padding-left: 12px;
-    }
+@font-face {
+    font-family: "Pixeloid Mono";
+    src: url('/lib/assets/fonts/PixeloidMono.ttf') format('ttf'),
 }
 
 html {
@@ -24,7 +18,7 @@ html {
 }
 
 body {
-    font-family:             "Courier New", monospace;
+    font-family:             "Pixeloid Mono", monospace;
     transform:               translateZ(0);
     font-weight:             bold;
     font-size:               16pt;

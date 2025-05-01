@@ -3,14 +3,24 @@
   "description": "React components for Blip",
   "version": "1.0.0",
   "type": "module",
-  "files": [
-    "dist",
-    "README.md"
-  ],
+  "main": "dist/blip.umd.js",
+  "module": "dist/blip.es.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/floframe/blip-lib.git"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/blip.es.js",
+      "require": "./dist/blip.umd.js"
+    }
+  },
+  "files": [ "dist" ],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "build:prod": "tsc -b --project tsconfig.deploy.json && vite build",
+    "build:prod": "tsc -p tsconfig.deploy.json && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -39,7 +49,9 @@
     "uuid": "^11.1.0"
   },
   "devDependencies": {
+    "ajv": "^8.17.1",
     "autoprefixer": "^10.4.19",
+    "vite-plugin-dts": "latest",
     "@eslint/js": "^9.21.0",
     "@types/node": "^22.13.11",
     "@types/luxon": "^3.4.2",
@@ -52,5 +64,8 @@
     "globals": "^15.15.0",
     "typescript-eslint": "^8.24.1",
     "postcss": "^8.5.3"
+  },
+  "publishConfig": {
+    "@floframe:registry": "https://npm.pkg.github.com"
   }
 }
