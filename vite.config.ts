@@ -16,7 +16,7 @@ export default defineConfig({
       entry: path.resolve(__dirname, 'src/lib/index.ts'),
       name: 'Blip',
       formats: [ 'es', 'umd' ],
-      fileName: (format) => `blip.${ format }.js`,
+      fileName: (format) => `index.${ format }.js`,
     },
     rollupOptions: {
       external: [ 'react', 'react-dom' ],
@@ -27,11 +27,11 @@ export default defineConfig({
         },
       },
     },
+    outDir: 'dist/lib'
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
-      'ajv': path.resolve(__dirname, 'node_modules/ajv/dist/ajv.js')
+      '@': path.resolve(__dirname, './src')
     }
   }
 });
