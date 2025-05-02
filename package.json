@@ -3,24 +3,26 @@
   "description": "React components for Blip",
   "version": "1.0.0",
   "type": "module",
-  "main": "dist/lib/blip.umd.js",
-  "module": "dist/lib/blip.es.js",
+  "main": "dist/lib/index.umd.js",
+  "module": "dist/lib/index.es.js",
   "types": "dist/lib/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git://github.com/floframe/blip-lib.git"
   },
+  "files": [
+    "dist/lib"
+  ],
   "exports": {
     ".": {
-      "import": "./dist/lib/blip.es.js",
-      "require": "./dist/lib/blip.umd.js"
+      "import": "./dist/lib/index.es.js",
+      "require": "./dist/lib/index.umd.js"
     }
   },
-  "files": [ "dist/lib" ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:types": "tsc --emitDeclarationOnly --outDir dist/lib",
+    "build:types": "tsc --emitDeclarationOnly --outDir dist",
     "build:lib": "npm run build && npm run build:types",
     "lint": "eslint .",
     "preview": "vite preview"

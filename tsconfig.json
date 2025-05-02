@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "baseUrl": ".",
     "incremental": true,
     "module": "commonjs",
     "outDir": "./dist",
@@ -30,7 +31,8 @@
     "typeRoots": [ "node_modules/@types", "src/lib/interfaces" ],
     "jsx": "react-jsx",
     "paths": {
-      "@/*": [ "./src/*" ]
+      "@/*": [ "./src/*" ],
+      "@dist": [ "dist/lib" ]
     }
   },
   "include": [ "src" ],

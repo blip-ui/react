@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BlipButton, BlipModal } from '@/lib';
+import { BlipButton, BlipModal } from '@dist';
 
 const BlipModalScaffold = (_props: any): React.ReactElement => {
 
@@ -29,7 +29,7 @@ const BlipModalScaffold = (_props: any): React.ReactElement => {
     <BlipButton label="Open Modal" onClick={ toggleModal }/>
     <BlipModal { ...props }
                onClose={ toggleModal }
-               actions={ ['close'] }
+               actions={ [ 'close' ] }
 
     >
       Content goes here.

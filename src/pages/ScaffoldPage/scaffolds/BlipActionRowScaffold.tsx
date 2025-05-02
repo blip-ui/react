@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BlipActionRow, BlipButton } from '@/lib';
+import { BlipActionRow, BlipButton } from '@dist';
 
 const BlipActionRowScaffold = (_props: any): React.ReactElement => {
 

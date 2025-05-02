@@ -2,6 +2,9 @@ import path from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
+import fs from 'fs';
+
+const distLibExists = fs.existsSync(path.resolve(__dirname, './dist/lib'));
 
 export default defineConfig({
   plugins: [
@@ -14,7 +17,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/lib/index.ts'),
-      name: 'Blip',
+      name: 'blip-lib',
       formats: [ 'es', 'umd' ],
       fileName: (format) => `index.${ format }.js`,
     },
@@ -31,7 +34,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src')
+      '@': path.resolve(__dirname, './src'),
+      '@dist': path.resolve(__dirname, './dist/lib')
     }
   }
 });

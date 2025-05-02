@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BlipTable } from '@/lib';
+import { BlipTable } from '@dist';
 
 const BlipTableScaffold = (_props: any): React.ReactElement => {
 
