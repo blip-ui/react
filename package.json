@@ -11,7 +11,8 @@
     "url": "git://github.com/floframe/blip-lib.git"
   },
   "files": [
-    "dist"
+    "dist",
+    "src/lib"
   ],
   "exports": {
     ".": {
