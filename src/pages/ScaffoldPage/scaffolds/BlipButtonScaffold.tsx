@@ -19,8 +19,7 @@ const BlipButtonScaffold = (_props: any): React.ReactElement => {
   }, [ _props?.defaultProps ]);
 
   return <BlipButton { ...props }
-                     onClick={ handleClick }
-  />;
+                     onClick={ handleClick }/>;
 
 };
 

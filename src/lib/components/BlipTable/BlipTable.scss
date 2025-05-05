@@ -107,5 +107,7 @@ table.BlipTable-table {
 }
 
 .BlipTable-selected {
-    background: black;
+    transition: all 200ms linear;
+    background: white;
+    color:      black;
 }

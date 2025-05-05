@@ -26,7 +26,7 @@ export default defineConfig({
           'react-dom': 'ReactDOM',
         },
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name === 'Mozart.ttf') {
+          if (assetInfo?.names?.includes('Mozart.ttf')) {
             return 'assets/styles/fonts/[name][extname]';
           }
           return 'assets/[name]-[hash][extname]';
@@ -38,7 +38,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@': path.resolve(__dirname, './src')
     }
   },
 });

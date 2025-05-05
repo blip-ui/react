@@ -28,10 +28,10 @@
       "dom.iterable",
       "esnext"
     ],
-    "typeRoots": [ "node_modules/@types", "src/lib/interfaces" ],
+    "typeRoots": [ "./node_modules/@types" ],
     "jsx": "react-jsx",
     "paths": {
-      "@/*": [ "src/*" ],
+      "@/*": [ "src/*" ]
     }
   },
   "include": [ "src" ],
