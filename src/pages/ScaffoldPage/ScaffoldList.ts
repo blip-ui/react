@@ -1,11 +1,11 @@
-import BlipTableScaffold from '@/pages/ScaffoldPage/scaffolds/BlipTableScaffold.tsx';
-import BlipButtonScaffold from '@/pages/ScaffoldPage/scaffolds/BlipButtonScaffold.tsx';
-import BlipInputScaffold from '@/pages/ScaffoldPage/scaffolds/BlipInputScaffold.tsx';
-import BlipLoadingIndicatorScaffold from '@/pages/ScaffoldPage/scaffolds/BlipLoadingIndicatorScaffold.tsx';
-import BlipDropdownScaffold from '@/pages/ScaffoldPage/scaffolds/BlipDropdownScaffold.tsx';
-import BlipActionRowScaffold from '@/pages/ScaffoldPage/scaffolds/BlipActionRowScaffold.tsx';
-import BlipModalScaffold from '@/pages/ScaffoldPage/scaffolds/BlipModalScaffold.tsx';
-import BlipFileDropzoneScaffold from '@/pages/ScaffoldPage/scaffolds/BlipFileDropzoneScaffold.tsx';
+import BlipTableScaffold from '../../pages/ScaffoldPage/scaffolds/BlipTableScaffold.tsx';
+import BlipButtonScaffold from '../../pages/ScaffoldPage/scaffolds/BlipButtonScaffold.tsx';
+import BlipInputScaffold from '../../pages/ScaffoldPage/scaffolds/BlipInputScaffold.tsx';
+import BlipLoadingIndicatorScaffold from '../../pages/ScaffoldPage/scaffolds/BlipLoadingIndicatorScaffold.tsx';
+import BlipDropdownScaffold from '../../pages/ScaffoldPage/scaffolds/BlipDropdownScaffold.tsx';
+import BlipActionRowScaffold from '../../pages/ScaffoldPage/scaffolds/BlipActionRowScaffold.tsx';
+import BlipModalScaffold from '../../pages/ScaffoldPage/scaffolds/BlipModalScaffold.tsx';
+import BlipFileDropzoneScaffold from '../../pages/ScaffoldPage/scaffolds/BlipFileDropzoneScaffold.tsx';
 
 export default [
   {
@@ -17,14 +17,14 @@ export default [
   {
     component: BlipButtonScaffold,
     controls: [
-      { id: 'size', type: 'choice', options: [ 'short', 'full', 'auto' ], value: 'short' },
+      { id: 'size', type: 'choice', options: [ 'short', 'full', 'auto' ], value: 'full' },
       { id: 'label', type: 'text', value: 'Test Button' },
     ],
   },
   {
     component: BlipInputScaffold,
     controls: [
-      { id: 'size', type: 'choice', options: [ 'short', 'full', 'auto' ], value: 'short' },
+      { id: 'size', type: 'choice', options: [ 'short', 'full', 'auto' ], value: 'full' },
       { id: 'value', type: 'text', value: 'Type something...' },
     ],
   },
@@ -35,7 +35,8 @@ export default [
   {
     component: BlipDropdownScaffold,
     controls: [
-      { id: 'selected', type: 'text', value: 'Option 1' },
+      { id: 'size', type: 'choice', options: [ 'short', 'full', 'auto' ], value: 'full' },
+      { id: 'selected', type: 'text', value: 'option1' },
       {
         id: 'options', type: 'array', value: [
           { id: 'option1', label: 'Option 1' },

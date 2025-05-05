@@ -3,9 +3,9 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import ScaffoldList from './ScaffoldList';
 import './ScaffoldPage.scss';
 import ResizeWrapper from './components/ResizeWrapper/ResizeWrapper';
-import Controls from '@/pages/ScaffoldPage/components/Controls/Controls.tsx';
-import ScaffoldMenu from '@/pages/ScaffoldPage/components/ScaffoldMenu/ScaffoldMenu.tsx';
-import EventLog from '@/pages/ScaffoldPage/components/EventLog/EventLog.tsx';
+import Controls from '../../pages/ScaffoldPage/components/Controls/Controls.tsx';
+import ScaffoldMenu from '../../pages/ScaffoldPage/components/ScaffoldMenu/ScaffoldMenu.tsx';
+import EventLog from '../../pages/ScaffoldPage/components/EventLog/EventLog.tsx';
 import clsx from 'clsx';
 import { useApp } from '@/pages/contexts';
 

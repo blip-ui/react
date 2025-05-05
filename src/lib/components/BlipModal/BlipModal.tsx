@@ -2,9 +2,9 @@ import React from 'react';
 
 import './BlipModal.scss';
 import clsx from 'clsx';
-import { BlipButton } from '@/lib';
+import { BlipButton } from '../BlipButton/BlipButton';
 
-const BlipModal = (props: any) => {
+export const BlipModal = (props: any) => {
 
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (props?.onClose) {
@@ -39,7 +39,7 @@ const BlipModal = (props: any) => {
             ?
             <div className="BlipModal-actions">
               { ( props?.actions ?? [] ).includes('close')
-                ? <BlipButton onClick={ handleActionClick('close') } label={ 'Close' } />
+                ? <BlipButton onClick={ handleActionClick('close') } label={ 'Close' }/>
                 : null }
             </div>
             : null }
@@ -48,5 +48,3 @@ const BlipModal = (props: any) => {
     </div>
   );
 };
-
-export default BlipModal;

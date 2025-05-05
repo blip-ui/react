@@ -1,11 +1,11 @@
 import React from 'react';
 import './BlipTable.scss';
-import { deepEquals, dotNotationGet } from '@/lib/utils';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
-import { BlipInput } from '@/lib';
+import { BlipInput } from '../BlipInput/BlipInput';
+import { deepEquals, dotNotationGet } from '../../utils';
 
-const BlipTable = (props: any) => {
+export const BlipTable = (props: any) => {
 
   const {
     rows = [],
@@ -98,9 +98,9 @@ const BlipTable = (props: any) => {
                 { selectable ?
                   <td className={ deepEquals(selected, row) ? 'BlipTable-selected' : '' }>
                     <BlipInput checked={ deepEquals(selected, row) }
-                                onChange={ handleRowClick(row, idx) }
-                                className={ deepEquals(selected, row) ? 'BlipTable-selected' : '' }
-                                type="checkbox"/>
+                               onChange={ handleRowClick(row, idx) }
+                               className={ deepEquals(selected, row) ? 'BlipTable-selected' : '' }
+                               type="checkbox"/>
                   </td>
                   : null }
                 { ( columns ?? [] ).map((column: any, jdx: number) => (
@@ -121,5 +121,3 @@ const BlipTable = (props: any) => {
     </div>
   );
 };
-
-export default BlipTable;

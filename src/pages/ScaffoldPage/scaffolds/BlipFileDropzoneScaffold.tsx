@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BlipFileDropzone } from '@dist';
+import { BlipFileDropzone } from '@/lib';
 
 const BlipFileDropzoneScaffold = (_props: any): React.ReactElement => {
 

@@ -7,20 +7,13 @@
     outline:    0;
 }
 
-@font-face {
-    font-family: "Pixeloid Mono";
-    src: url('/lib/assets/fonts/PixeloidMono.ttf') format('ttf'),
-}
-
 html {
     box-sizing:      border-box;
     border-collapse: collapse;
 }
 
 body {
-    font-family:             "Pixeloid Mono", monospace;
     transform:               translateZ(0);
-    font-weight:             bold;
     font-size:               16pt;
     margin:                  0;
     top:                     0;

@@ -31,8 +31,7 @@
     "typeRoots": [ "node_modules/@types", "src/lib/interfaces" ],
     "jsx": "react-jsx",
     "paths": {
-      "@/*": [ "./src/*" ],
-      "@dist": [ "dist/lib" ]
+      "@/*": [ "src/*" ],
     }
   },
   "include": [ "src" ],

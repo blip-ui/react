@@ -1,19 +1,69 @@
+import React, { useEffect, useRef, useState } from 'react';
 import './BlipDropdown.scss';
-import React from 'react';
+import clsx from 'clsx';
 
-const BlipDropdown = (props: any) => {
+export const BlipDropdown = (props: any) => {
+  const { size = 'auto', value, onChange, options = [] } = props;
+  const [ isOpen, setIsOpen ] = useState<boolean>(false);
+  const [ selectedOption, setSelectedOption ] = useState<any>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const handleToggle = () => setIsOpen(!isOpen);
+
+  const handleSelect = (option: any) => {
+    setSelectedOption(option);
+    onChange({ target: { value: option.id } });
+    setIsOpen(false);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  useEffect(() => {
+    const option = options.find((o: any) => o.id === value);
+    if (option) {
+      setSelectedOption(option);
+    }
+  }, [ value, options ]);
 
   return (
-    <select className="BlipDropdown-container"
-            onChange={ props?.onChange }
-            value={ props?.selected }>
-      { ( props?.options ?? [] ).map((option: any, idx: number) => (
-        <option key={ [ 'option', option.id, idx ].join('_') }
-                value={ option.id }
-                label={ option.label }/>
-      )) }
-    </select>
+    <div
+      ref={ dropdownRef }
+      className={ clsx(
+        'BlipDropdown-container',
+        `BlipDropdown-size-${ size }`,
+        props?.className
+      ) }
+    >
+      <div className="BlipDropdown-selected" onClick={ handleToggle }>
+        { selectedOption ? selectedOption.label : 'Select an option' }
+      </div>
+      { isOpen && (
+        <div className="BlipDropdown-options">
+          { options.map((option: any) => (
+            <div
+              key={ option.id }
+              className={ clsx(
+                'BlipDropdown-option',
+                { 'BlipDropdown-option-selected': option.id === selectedOption?.id }
+              ) }
+              onClick={ () => handleSelect(option) }
+            >
+              { option.label }
+            </div>
+          )) }
+        </div>
+      ) }
+    </div>
   );
 };
-
-export default BlipDropdown;

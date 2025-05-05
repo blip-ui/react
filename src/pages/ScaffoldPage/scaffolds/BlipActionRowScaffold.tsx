@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BlipActionRow, BlipButton } from '@dist';
+import { BlipActionRow, BlipButton } from '@/lib';
 
 const BlipActionRowScaffold = (_props: any): React.ReactElement => {
 
@@ -20,7 +20,7 @@ const BlipActionRowScaffold = (_props: any): React.ReactElement => {
 
   return <BlipActionRow { ...props }
                         onClick={ handleClick }>
-    <BlipButton label="Some action" />
+    <BlipButton label="Some action"/>
   </BlipActionRow>;
 
 };

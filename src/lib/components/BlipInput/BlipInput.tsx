@@ -3,7 +3,7 @@ import React from 'react';
 import './BlipInput.scss';
 import clsx from 'clsx';
 
-const BlipInput = (props: any) => {
+export const BlipInput = (props: any) => {
   return (
     <div className={ clsx(
       'BlipInput-container',
@@ -13,5 +13,3 @@ const BlipInput = (props: any) => {
     </div>
   );
 };
-
-export default BlipInput;

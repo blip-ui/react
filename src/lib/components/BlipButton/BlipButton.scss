@@ -1,6 +1,5 @@
 .BlipButton {
     position:    relative;
-    font-family: inherit;
     height:      48px;
 
     &:hover {
@@ -21,9 +20,7 @@
 
     box-shadow:  5px 5px 0 0 darkgray;
     margin:      10px 10px 10px 0;
-    font-weight: bold;
     cursor:      pointer;
-    font-size:   16pt;
     white-space: nowrap;
     background:  none;
     background:  white;
@@ -45,7 +42,7 @@
 
 .BlipButton-size-auto { width: auto; }
 
-.BlipButton-size-short { width: 600px; }
+.BlipButton-size-short { width: 400px; }
 
 .BlipButton-size-full { width: calc(100% - 5px); }
 

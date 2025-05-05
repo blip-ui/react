@@ -3,7 +3,7 @@ import './BlipButton.scss';
 import clsx from 'clsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const BlipButton = (props: any) => {
+export const BlipButton = (props: any) => {
 
   return (
     <button
@@ -20,5 +20,3 @@ const BlipButton = (props: any) => {
     </button>
   );
 };
-
-export default BlipButton;

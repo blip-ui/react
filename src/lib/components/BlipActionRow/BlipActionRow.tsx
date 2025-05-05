@@ -3,7 +3,7 @@ import React, { PropsWithChildren } from 'react';
 import './BlipActionRow.scss';
 import clsx from 'clsx';
 
-const BlipActionRow = (props: PropsWithChildren | any) => {
+export const BlipActionRow = (props: PropsWithChildren | any) => {
 
   const [ error, setError ] = React.useState<boolean>(false);
 
@@ -21,7 +21,7 @@ const BlipActionRow = (props: PropsWithChildren | any) => {
         <div className={ clsx(
           'BlipActionRow-row-content',
           props?.progress ? 'BlipActionRow-row-content-success' : null) }>
-          { props.children }
+          { props?.children ?? null }
         </div>
         <div style={ { width: props?.progress + '%' } }
              className={
@@ -50,5 +50,3 @@ const BlipActionRow = (props: PropsWithChildren | any) => {
     </div>
   );
 };
-
-export default BlipActionRow;

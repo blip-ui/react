@@ -1,6 +1,11 @@
+@use "sass:list";
+@use "sass:map";
+@use "@/lib/styles" as s;
+
 $border-width: 2;
 
 .BlipTable-container {
+    font-weight:    normal;
     position:       relative;
     display:        flex;
     flex-direction: column;
@@ -33,16 +38,16 @@ table.BlipTable-table {
         &:last-child {
             border-right: #{$border-width * 2}px double white;
         }
-
     }
 
     th {
-        height:     36px;
-        position:   sticky;
-        top:        0;
-        background: black;
-        border:     none;
-        padding:    0 10px;
+        height:      36px;
+        position:    sticky;
+        top:         0;
+        background:  s.color(black);
+        border:      none;
+        padding:     0 10px;
+        font-weight: normal;
 
         // New inner element for the border
         &::before {
@@ -92,7 +97,6 @@ table.BlipTable-table {
 
     width:           100%;
     height:          auto;
-
     border-collapse: separate;
     border-spacing:  0;
 

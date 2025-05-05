@@ -2,6 +2,8 @@ import * as React from 'react';
 
 const defaultApi: any = {
   events: [] as any[],
+  prodMode: false as boolean,
+  setProdMode: (_mode: boolean) => null,
   clearEvents: () => null,
   addEvent: (_source: string, _data: any) => null,
 };
@@ -15,6 +17,7 @@ export const AppContext: React.Context<AppContextApi> = React.createContext<AppC
  */
 export const AppProvider = ({ children }: any) => {
 
+  const [ prodMode, setProdMode ] = React.useState<boolean>(false);
   const [ events, setEvents ] = React.useState<any[]>(defaultApi.events);
 
   const clearEvents = () => {
@@ -29,6 +32,8 @@ export const AppProvider = ({ children }: any) => {
     <AppContext.Provider
       value={ {
         events,
+        prodMode,
+        setProdMode,
         clearEvents,
         addEvent,
       } as AppContextApi }>

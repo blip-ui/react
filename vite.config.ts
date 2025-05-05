@@ -2,9 +2,6 @@ import path from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
-import fs from 'fs';
-
-const distLibExists = fs.existsSync(path.resolve(__dirname, './dist/lib'));
 
 export default defineConfig({
   plugins: [
@@ -28,14 +25,20 @@ export default defineConfig({
           react: 'React',
           'react-dom': 'ReactDOM',
         },
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name === 'Mozart.ttf') {
+            return 'assets/styles/fonts/[name][extname]';
+          }
+          return 'assets/[name]-[hash][extname]';
+        },
       },
     },
-    outDir: 'dist/lib'
+    outDir: 'dist',
+    assetsDir: 'assets'
   },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
-      '@dist': path.resolve(__dirname, './dist/lib')
     }
-  }
+  },
 });

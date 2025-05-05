@@ -4,7 +4,7 @@ import './BlipFileDropzone.scss';
 import clsx from 'clsx';
 import { BlipButton } from '@/lib';
 
-const BlipFileDropzone = (props: any) => {
+export const BlipFileDropzone = (props: any) => {
 
   const dropRef: React.RefObject<HTMLDivElement | null> = React.useRef<HTMLDivElement | null>(null);
   const fileInputRef: React.RefObject<HTMLInputElement | null> = React.useRef<HTMLInputElement | null>(null);
@@ -79,5 +79,3 @@ const BlipFileDropzone = (props: any) => {
     </div>
   );
 };
-
-export default BlipFileDropzone;

@@ -1,0 +1,35 @@
+@use "sass:list";
+@use "sass:map";
+@use "@/lib/styles" as s;
+
+.BlipThemeWrapper {
+    font-family: "Mozart NBP", monospace;
+    font-size:   xx-large;
+    font-weight: normal;
+
+    * {
+        font-size:   inherit;
+        font-family: inherit;
+    }
+
+    & input[type="checkbox"] {
+        height: 22px;
+        width:  22px;
+        cursor: pointer;
+    }
+
+    & input:not([type="checkbox"]) {
+        flex-grow:   1;
+        font-family: "Mozart NBP", monospace;
+        outline:     none;
+        box-shadow:  5px 5px 0 0 darkgray;
+        margin:      10px 5px 10px 0;
+        cursor:      text;
+        font-size:   inherit;
+        background:  white;
+        border:      none;
+        color:       black;
+        padding:     11px 20px;
+        display:     block;
+    }
+}
