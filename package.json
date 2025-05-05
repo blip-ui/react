@@ -25,6 +25,7 @@
     "build": "vite build",
     "build:types": "tsc --emitDeclarationOnly --outDir dist",
     "build:lib": "npm run build && npm run build:types",
+    "prepare": "npm run build:lib",
     "lint": "eslint .",
     "preview": "vite preview"
   },
