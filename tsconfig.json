@@ -4,8 +4,9 @@
     "baseUrl": ".",
     "incremental": true,
     "module": "commonjs",
-    "outDir": "./dist",
+    "outDir": "dist",
     "declaration": true,
+    "declarationDir": "dist",
     "allowJs": true,
     "noEmit": true,
     "skipLibCheck": true,
@@ -28,12 +29,12 @@
       "dom.iterable",
       "esnext"
     ],
-    "typeRoots": [ "./node_modules/@types" ],
+    "typeRoots": [ "node_modules/@types" ],
     "jsx": "react-jsx",
     "paths": {
       "@/*": [ "src/*" ]
     }
   },
   "include": [ "src" ],
-  "exclude": [ "node_modules", "**/*.spec.ts" ]
+  "exclude": [ "node_modules", "tests" ]
 }

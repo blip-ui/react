@@ -26,15 +26,20 @@ export default defineConfig({
           'react-dom': 'ReactDOM',
         },
         assetFileNames: (assetInfo) => {
-          if (assetInfo?.names?.includes('Mozart.ttf')) {
-            return 'assets/styles/fonts/[name][extname]';
+          // if (assetInfo?.name === 'style.css') {
+          //   return 'index.css';
+          // }
+          if (assetInfo?.names?.find((x) => x.endsWith('.ttf'))) {
+            console.log('wow');
+            return 'assets/[name][extname]';
           }
           return 'assets/[name]-[hash][extname]';
         },
       },
     },
     outDir: 'dist',
-    assetsDir: 'assets'
+    emptyOutDir: true,
+    assetsDir: 'assets',
   },
   resolve: {
     alias: {
