@@ -37,6 +37,7 @@ export default [
     controls: [
       { id: 'size', type: 'choice', options: [ 'short', 'full', 'auto' ], value: 'full' },
       { id: 'selected', type: 'text', value: 'option1' },
+      { id: 'disabled', type: 'boolean', value: false },
       {
         id: 'options', type: 'array', value: [
           { id: 'option1', label: 'Option 1' },

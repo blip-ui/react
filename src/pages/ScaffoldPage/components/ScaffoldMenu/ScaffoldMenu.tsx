@@ -2,19 +2,27 @@ import './ScaffoldMenu.scss';
 import ScaffoldList from '../../../../pages/ScaffoldPage/ScaffoldList.ts';
 import { NavLink } from 'react-router-dom';
 import React from 'react';
-import { useApp } from '@/pages/contexts';
+
+const themes = [ 'basic', 'inverted' ];
 
 const ScaffoldMenu = () => {
 
-  const { prodMode, setProdMode } = useApp();
-
   const scaffoldList: any[] = ScaffoldList.map((x: any) => ( { ...x, path: '/test/' + x.component.name } ));
 
+  const handleThemeChange = (e: any) => {
+    const theme = e.target.value;
+    document.body.setAttribute('data-blip-theme', theme);
+    window.localStorage.setItem('blip-theme', theme);
+  };
 
   return (
     <div className="ScaffoldMenu-container">
       <h3>Scaffolds</h3>
-      <input type="checkbox" onChange={ setProdMode } value={ prodMode }/>&nbsp;Prod Mode
+      <select className="ScaffoldMenu-select" onChange={ handleThemeChange }>
+        { themes.map((theme: any, idx: number) => (
+          <option key={ [ 'theme', idx ].join('_') } value={ theme }> { theme } </option>
+        )) }
+      </select>
       <hr/>
       { scaffoldList.map((scaffold: any, idx: number) => (
         <div key={ [ 'scaffold', idx ].join('_') }

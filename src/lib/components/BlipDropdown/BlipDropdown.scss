@@ -1,6 +1,13 @@
+@use "sass:list";
+@use "sass:map";
+@use "@/lib/styles" as s;
+
 $padding: 20;
 
 .BlipDropdown-container {
+    @include s.theme-aware("background-color", "background");
+    @include s.theme-aware("color", "text");
+
     position:    relative;
     height:      36px;
     flex-grow:   1;
@@ -8,22 +15,14 @@ $padding: 20;
     margin:      10px 10px 10px 0;
     cursor:      pointer;
     white-space: nowrap;
-    background:  white;
     border:      none;
-    color:       black;
     padding:     6px #{$padding}px;
     display:     flex;
     align-items: center;
 
     &:hover {
-        background: gray;
-        color:      white;
-    }
-
-    &:disabled {
-        background: gray;
-        color:      lightgray;
-        cursor:     not-allowed;
+        @include s.theme-aware("background-color", "disabled");
+        @include s.theme-aware("color", "background");
     }
 
     .BlipDropdown-selected {
@@ -34,11 +33,12 @@ $padding: 20;
     }
 
     .BlipDropdown-options {
+        @include s.theme-aware("background", "background");
+
         position:   absolute;
         top:        100%;
         left:       0;
         right:      0;
-        background: white;
         border:     1px solid darkgray;
         box-shadow: 5px 5px 0 0 darkgray;
         z-index:    1000;
@@ -47,13 +47,14 @@ $padding: 20;
     }
 
     .BlipDropdown-option {
+        @include s.theme-aware("color", "text");
+
         padding: 10px 20px;
         cursor:  pointer;
-        color:   black;
 
         &:hover {
-            background: gray;
-            color:      white;
+            @include s.theme-aware("background-color", "disabled");
+            @include s.theme-aware("color", "background");
         }
     }
 
@@ -80,4 +81,12 @@ $padding: 20;
     margin:   10px 0;
     padding:  0;
     overflow: hidden;
+}
+
+.BlipDropdown-disabled {
+    @include s.theme-aware("background-color", "disabled");
+    @include s.theme-aware("color", "white");
+
+    cursor:         default;
+    pointer-events: none;
 }

@@ -1,61 +1,4 @@
 /**
- * Converts a date string to a human-readable format.
- * @param str a string.
- */
-const parseDate = (str: string): string => {
-  return ( new Date(str) as Date ).toLocaleString();
-};
-
-/**
- * Converts a value to a currency string.
- * @param value a value.
- */
-const parseCurrency = (value: string | number): string => {
-  return ( +value ).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-};
-
-/**
- * Converts a string to camelCase.
- * @param str a string.
- */
-const toCamelCase = (str: string): string => {
-  return str.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (_, chr) => chr.toUpperCase());
-};
-
-/**
- * Converts an object's keys to camelCase.
- * @param obj an object.
- */
-const convertKeysToCamelCase = (obj: any): any => {
-  return Object.keys(obj).reduce((result, key) => {
-    result[ toCamelCase(key) ] = obj[ key ];
-    return result;
-  }, {} as any);
-};
-
-
-/**
- * Sets a value in an object using dot-notation.
- * For example, given the object:
- * <pre>
- *   const obj = { a: { b: { c: 1 } } };
- * </pre>
- * You set the value of 'c' to 2 by running dotNotationSet('a.b.c', obj, 2);
- * @param path  the full path, dot-notated.
- * @param obj   the object.
- * @param value the value to set.
- * @returns the updated object.
- */
-const dotNotationSet = (obj: object, path: string, value: any): any => {
-  const paths: string[] = path.split('.');
-  const o: any = paths.slice(0, -1).reduce((o: any, pathItem: string) => o ? o[ pathItem ] : undefined, obj);
-  if (o && o[ paths[ paths.length - 1 ] ]) {
-    o[ paths[ paths.length - 1 ] ] = value;
-  }
-  return obj;
-};
-
-/**
  * Gets a value from an object given dot notation.
  * For example, given the object:
  * <pre>
@@ -99,9 +42,4 @@ function deepEquals(obj1: any, obj2: any) {
 export {
   deepEquals,
   dotNotationGet,
-  dotNotationSet,
-  toCamelCase,
-  parseDate,
-  parseCurrency,
-  convertKeysToCamelCase,
 };

@@ -4,8 +4,10 @@ import clsx from 'clsx';
 
 export const BlipDropdown = (props: any) => {
   const { size = 'auto', value, onChange, options = [] } = props;
+
   const [ isOpen, setIsOpen ] = useState<boolean>(false);
   const [ selectedOption, setSelectedOption ] = useState<any>(null);
+
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleToggle = () => setIsOpen(!isOpen);
@@ -42,6 +44,7 @@ export const BlipDropdown = (props: any) => {
       className={ clsx(
         'BlipDropdown-container',
         `BlipDropdown-size-${ size }`,
+        props?.disabled && 'BlipDropdown-disabled',
         props?.className
       ) }
     >

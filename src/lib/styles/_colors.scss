@@ -1,5 +1,18 @@
-$colors: (
-             black: #000000,
+$basic-theme:    (
+                     background: #ffffff,
+                     text: #121212,
+                     disabled: #808080,
+                     shadow: #D3D3D3,
+                 );
 
-             blue0: #0f0f4b,
-         );
+$inverted-theme: (
+                     background: #121212,
+                     text: #ffffff,
+                     disabled: #808080,
+                     shadow: #D3D3D3,
+                 );
+
+$themes:         (
+                     basic: $basic-theme,
+                     inverted: $inverted-theme,
+                 );

@@ -1,7 +1,42 @@
 @use "sass:map";
-@use "sass:list";
 @use "./_colors" as colors;
 
+// Default theme
+$current-theme: "basic" !default;
+
+@function theme-color($key) {
+    $theme-map: map.get(colors.$themes, $current-theme);
+    @return map.get($theme-map, $key);
+}
+
+@mixin theme-aware($property, $key) {
+    #{$property}: theme-color($key);
+}
+
+// Mixin for theme switching
+@mixin theme($theme: "basic") {
+    $current-theme: $theme !global;
+    @content;
+}
+
+// For backwards compatibility
 @function color($key) {
-    @return map.get(colors.$colors, $key);
+    @return theme-color($key);
+}
+
+@mixin generate-theme-variables($theme-name) {
+    $theme-map: map.get(colors.$themes, $theme-name);
+    @each $key, $value in $theme-map {
+        --#{$theme-name}-#{$key}: #{$value};
+    }
+}
+
+:root {
+    @each $theme-name, $theme-map in colors.$themes {
+        @include generate-theme-variables($theme-name);
+    }
+}
+
+@function theme-color($key) {
+    @return var(--#{$current-theme}-#{$key});
 }
