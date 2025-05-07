@@ -9,7 +9,7 @@ export const BlipInput = (props: any) => {
       'BlipInput-container',
       'BlipInput-size-' + ( props?.size ?? 'auto' ),
     ) }>
-      <input { ...props } />
+      <input className="BlipInput-input" { ...props } />
     </div>
   );
 };

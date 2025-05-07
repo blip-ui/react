@@ -1,4 +1,4 @@
-export { BlipThemeWrapper, withBlipTheme } from './components/BlipThemeWrapper/BlipThemeWrapper';
+export { BlipThemeProvider, withBlipTheme } from './components/BlipThemeProvider/BlipThemeProvider.tsx';
 
 export { BlipActionRow } from './components/BlipActionRow/BlipActionRow';
 export { BlipButton } from './components/BlipButton/BlipButton';

@@ -8,7 +8,7 @@ import ScaffoldMenu from '../../pages/ScaffoldPage/components/ScaffoldMenu/Scaff
 import EventLog from '../../pages/ScaffoldPage/components/EventLog/EventLog.tsx';
 import clsx from 'clsx';
 import { useApp } from '../contexts';
-import { BlipThemeWrapper } from '@lib';
+import { BlipThemeProvider } from '@lib';
 
 const ScaffoldPage = () => {
 
@@ -119,14 +119,12 @@ const ScaffoldPage = () => {
   return (
     <div className="ScaffoldPage-container">
 
-      <div className={ clsx('left-panel', 'Outside-Theme') }>
-        <ScaffoldMenu/>
-      </div>
+      <ScaffoldMenu/>
 
       <div className="right-panel">
         <div className="frame-panel" ref={ containerRef }>
           <ResizeWrapper>
-            <BlipThemeWrapper>
+            <BlipThemeProvider>
               <Routes>
                 { ScaffoldList.map((scaffold: any, idx: number) => (
                   <Route path={ scaffold.component.name + '/*' }
@@ -137,7 +135,7 @@ const ScaffoldPage = () => {
                          /> }/>
                 )) }
               </Routes>
-            </BlipThemeWrapper>
+            </BlipThemeProvider>
           </ResizeWrapper>
         </div>
 

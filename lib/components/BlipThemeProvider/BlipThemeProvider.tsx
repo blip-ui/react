@@ -1,5 +1,5 @@
 import React from 'react';
-import './BlipThemeWrapper.scss';
+import './BlipThemeProvider.scss';
 import clsx from 'clsx';
 
 type Theme = 'basic' | 'inverted';
@@ -10,13 +10,13 @@ const getBodyTheme = (): Theme => {
 
 export const withBlipTheme = (Component: React.ComponentType<any>) => {
   return (props: any) => (
-    <BlipThemeWrapper>
+    <BlipThemeProvider>
       <Component { ...props } />
-    </BlipThemeWrapper>
+    </BlipThemeProvider>
   );
 };
 
-export const BlipThemeWrapper = (props: any) => {
+export const BlipThemeProvider = (props: any) => {
   const [ theme, setTheme ] = React.useState<Theme>(getBodyTheme());
 
   React.useEffect(() => {

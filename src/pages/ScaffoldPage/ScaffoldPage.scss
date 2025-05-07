@@ -1,12 +1,5 @@
-.Outside-Theme {
+body {
     font-family: "Helvetica Neue", Helvetica, sans-serif;
-    line-height: normal;
-    font-weight: normal;
-    font-size:   medium;
-
-    h3 {
-        padding-left: 12px;
-    }
 }
 
 
@@ -59,14 +52,14 @@ a {
 }
 
 .controls-panel {
-    flex-grow: 1;
-    border: 1px solid #efefef;
+    flex-grow:  1;
+    border:     1px solid #efefef;
     overflow-y: auto;
 }
 
 .events-panel {
-    flex-grow: 1;
-    border: 1px solid #efefef;
+    flex-grow:  1;
+    border:     1px solid #efefef;
     overflow-y: auto;
 }
 

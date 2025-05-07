@@ -1,6 +1,17 @@
+@use "@lib/styles" as s;
+
 .BlipInput-container {
     display:   flex;
     flex-grow: 1;
+
+
+}
+
+.BlipInput-input {
+    &::selection {
+        @include s.theme-aware("background-color", "text");
+        @include s.theme-aware("color", "background");
+    }
 }
 
 .BlipInput-size-square { aspect-ratio: 1; }
