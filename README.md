@@ -1,6 +1,7 @@
-# blip - an MS-DOS-inspired theme
+# blip - an MS-DOS-inspired React component library
 
-Blip is a React component library that provides an MS-DOS-inspired theme for modern web applications. It offers a nostalgic, retro look while maintaining the functionality of contemporary UI components.
+Blip is a React component library that provides an MS-DOS-inspired theme for modern web applications. 
+It offers a nostalgic, retro look while maintaining the functionality of contemporary UI components.
 
 ## Features
 
@@ -21,54 +22,45 @@ Install blip using npm:
 1. Wrap the themed section in the BlipThemeProvider
 
 ```typescript jsx
+import { BlipThemeProvider } from '@floframe/blip-lib';
+
+export default App = () => {
+  return (
+    <BlipThemeProvider>
+      ...
+    </BlipThemeProvider>
+  )
+};
+```
+
+2. Import the components you need
+
+```typescript jsx
 import { BlipButton, BlipInput, BlipModal } from '@floframe/blip-lib';
 
-function App() {
+function MyComponent() {
   return (
     <div>
       <BlipButton>Click me</BlipButton>
-      <BlipInput placeholder="Enter text"/>
-      <BlipModal>
-        <h2>Modal Content</h2>
-        <p>This is an MS-DOS style modal!</p>
-      </BlipModal>
     </div>
   );
 }
 ```
 
-## Available Components
+## Component API
 
-- BlipActionRow
-- BlipButton
-- BlipDropdown
-- BlipFileDropzone
-- BlipInput
-- BlipLoadingIndicator
-- BlipModal
-- BlipTable
+| Component              | Description                   | Props                                                                                                                                                          |
+|------------------------|-------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `BlipActionRow`        | Displays a row of actions     | • `progress`: number (0-100)<br>• `error`: boolean<br>• `status`: string                                                                                       |
+| `BlipButton`           | Customizable button           | • `size`: 'short' \| 'full' \| 'auto'<br>• `label`: string<br>• `icon`: IconDefinition<br>• `onClick`: function                                                |
+| `BlipDropdown`         | Dropdown selection            | • `size`: 'short' \| 'full' \| 'auto'<br>• `options`: Array<{id: string, label: string}><br>• `selected`: string<br>• `onChange`: function(selectedId: string) |
+| `BlipFileDropzone`     | File upload via drag and drop | • `onDrop`: function(files: File[])                                                                                                                            |
+| `BlipInput`            | Text input field              | • `size`: 'short' \| 'full' \| 'auto'<br>• `value`: string<br>• `onChange`: function(event: ChangeEvent)                                                       |
+| `BlipLoadingIndicator` | Loading spinner               | *No specific props*                                                                                                                                            |
+| `BlipModal`            | Modal dialog                  | • `show`: boolean<br>• `onClose`: function<br>• `actions`: string[]                                                                                            |
+| `BlipTable`            | Data table                    | • `columns`: Array<{label: string, field: string}><br>• `rows`: Array<object><br>• `onRowClick`: function(row: object)                                         |
 
-## Theming
-
-Blip comes with two built-in themes: 'basic' and 'inverted'. You can switch between themes using the BlipThemeProvider component:
-
-    import { BlipThemeProvider, BlipButton } from 'blip-theme';
-
-    function App() {
-      return (
-        <BlipThemeProvider theme="inverted">
-          <BlipButton>Inverted Theme Button</BlipButton>
-        </BlipThemeProvider>
-      );
-    }
-
-## Development
-
-To set up the development environment:
-
-1. Clone the repository
-2. Install dependencies: npm install
-3. Start the development server: npm run dev
+Each component is designed to mimic MS-DOS aesthetics while providing modern React functionality. Refer to individual component documentation for detailed usage instructions.
 
 ## Building
 
@@ -78,13 +70,14 @@ To build the library:
 
 This will generate the distribution files in the dist directory.
 
-## Contributing
+## Demo
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+You can demo each individual component and their properties by running 
 
-## License
+    npm run dev
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+and navigating to http://localhost:5173
+
 
 ## Acknowledgments
 
