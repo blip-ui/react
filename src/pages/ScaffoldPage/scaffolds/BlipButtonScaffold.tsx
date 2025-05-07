@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BlipButton } from '@lib';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 
 const BlipButtonScaffold = (_props: any): React.ReactElement => {
 
@@ -19,6 +20,7 @@ const BlipButtonScaffold = (_props: any): React.ReactElement => {
   }, [ _props?.defaultProps ]);
 
   return <BlipButton { ...props }
+                     icon={ faGoogle }
                      onClick={ handleClick }/>;
 
 };

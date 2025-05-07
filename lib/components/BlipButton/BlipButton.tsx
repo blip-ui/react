@@ -14,7 +14,9 @@ export const BlipButton = (props: any) => {
       ) }
       onClick={ props?.onClick }
     >
-      <span className={ 'BlipButton-icon' }>{ props?.icon && <FontAwesomeIcon icon={ props?.icon }/> }</span>
+      { props?.icon ? <FontAwesomeIcon
+        className="BlipButton-icon"
+        icon={ props?.icon }/> : null }
       { props?.label && props?.icon ? <span>&nbsp;</span> : '' }
       { props?.label ?? '' }
     </button>

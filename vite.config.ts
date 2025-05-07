@@ -2,8 +2,8 @@ import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
 import path from 'path';
 import { defineConfig } from 'vite';
-import { libInjectCss } from 'vite-plugin-lib-inject-css'
-import { glob } from 'glob'
+import { libInjectCss } from 'vite-plugin-lib-inject-css';
+import { glob } from 'glob';
 import { fileURLToPath } from 'node:url';
 
 export default defineConfig({
@@ -21,11 +21,11 @@ export default defineConfig({
       formats: [ 'es' ],
     },
     rollupOptions: {
-      external: ['react', 'react/jsx-runtime'],
+      external: [ 'react', 'react/jsx-runtime' ],
       input: Object.fromEntries(
         // https://rollupjs.org/configuration-options/#input
         glob.sync('lib/**/*.{ts,tsx}', {
-          ignore: ["lib/**/*.d.ts"],
+          ignore: [ 'lib/**/*.d.ts' ],
         }).map(file => [
           // 1. The name of the entry point
           // lib/nested/foo.js becomes nested/foo

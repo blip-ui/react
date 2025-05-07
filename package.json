@@ -3,10 +3,8 @@
   "description": "React components for Blip",
   "version": "1.0.0",
   "type": "module",
-  "main": "dist/index.umd.js",
-  "module": "dist/index.es.js",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "style": "dist/index.css",
   "files": [
     "dist"
   ],
@@ -37,7 +35,6 @@
     "@types/node": "^22.13.11",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
-
     "@vitejs/plugin-react": "^4.3.1",
     "clsx": "^2.1.1",
     "react-router-dom": "^7.4.0",
