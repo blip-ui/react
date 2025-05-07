@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BlipInput } from '@/lib';
+import { BlipInput } from '@lib';
 
 const BlipInputScaffold = (_props: any): React.ReactElement => {
 

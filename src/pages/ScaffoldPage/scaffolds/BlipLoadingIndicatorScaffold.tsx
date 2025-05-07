@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BlipLoadingIndicator } from '@/lib';
+import { BlipLoadingIndicator } from '@lib';
 
 const BlipLoadingIndicatorScaffold = (_props: any): React.ReactElement => {
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BlipTable } from '@/lib';
+import { BlipTable } from '@lib';
 
 const randomLongText = (): string => {
   const strings = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?';

@@ -2,7 +2,7 @@ import React from 'react';
 
 import './BlipFileDropzone.scss';
 import clsx from 'clsx';
-import { BlipButton } from '@/lib';
+import { BlipButton } from '@lib';
 
 export const BlipFileDropzone = (props: any) => {
 

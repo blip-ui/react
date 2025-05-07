@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BlipButton, BlipModal } from '@/lib';
+import { BlipButton, BlipModal } from '@lib';
 
 const BlipModalScaffold = (_props: any): React.ReactElement => {
 
