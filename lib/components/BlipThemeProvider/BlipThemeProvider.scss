@@ -2,15 +2,12 @@
 @use "sass:map";
 @use "@lib/styles" as s;
 
-.BlipThemeWrapper {
-
-    font-family: "Mozart NBP", monospace;
-    font-size:   xx-large;
-    font-weight: normal;
+.BlipThemeProvider {
 
     * {
-        font-size:   inherit;
-        font-family: inherit;
+        font-family: "Mozart NBP", monospace;
+        font-size:   xx-large;
+        font-weight: normal;
     }
 
     h1,h2,h3 {
@@ -39,10 +36,10 @@
     }
 }
 
-.BlipThemeWrapper--basic {
+.BlipThemeProvider--basic {
     @include s.theme(basic);
 }
 
-.BlipThemeWrapper--inverted {
+.BlipThemeProvider--inverted {
     @include s.theme(inverted);
 }
