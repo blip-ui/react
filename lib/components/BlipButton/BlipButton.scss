@@ -1,6 +1,7 @@
 .BlipButton {
     position:    relative;
     height:      48px;
+    font-size:   xx-large;
 
     &:hover {
         background: gray;
@@ -53,7 +54,7 @@
 }
 
 .BlipButton-icon {
-    float: left;
-    left: 20px;
+    float:  left;
+    left:   20px;
     height: 100%;
 }

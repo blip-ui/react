@@ -2,14 +2,15 @@
 
 .BlipThemeProvider {
 
-    * {
-        font-family: "Mozart NBP", monospace;
-        font-size:   xx-large;
-        font-weight: normal;
-    }
+    font-size:   x-large;
 
-    h1,h2,h3 {
-        font-weight: normal;
+    * {
+        font-family: "Courier New", monospace;
+        font-size:   inherit;
+
+        h1, h2, h3 {
+            font-size: revert;
+        }
     }
 
     input[type="checkbox"] {
@@ -19,11 +20,11 @@
     }
 
     input:not([type="checkbox"]) {
-        @include s.theme-aware("background", "background");
+        @include s.theme-aware("background-color", "background");
         @include s.theme-aware("color", "text");
 
         flex-grow:   1;
-        font-family: "Mozart NBP", monospace;
+        font-family: "Courier New", monospace;
         outline:     none;
         box-shadow:  5px 5px 0 0 darkgray;
         margin:      10px 5px 10px 0;

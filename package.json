@@ -1,7 +1,7 @@
 {
   "name": "@floframe/blip-lib",
-  "description": "React components for Blip",
-  "version": "1.0.0",
+  "description": "React components for blip",
+  "version": "0.2.0",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
