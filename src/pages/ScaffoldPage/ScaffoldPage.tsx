@@ -8,6 +8,7 @@ import ScaffoldMenu from '../../pages/ScaffoldPage/components/ScaffoldMenu/Scaff
 import EventLog from '../../pages/ScaffoldPage/components/EventLog/EventLog.tsx';
 import clsx from 'clsx';
 import { useApp } from '../contexts';
+import { BlipThemeWrapper } from '@lib';
 
 const ScaffoldPage = () => {
 
@@ -125,16 +126,18 @@ const ScaffoldPage = () => {
       <div className="right-panel">
         <div className="frame-panel" ref={ containerRef }>
           <ResizeWrapper>
-            <Routes>
-              { ScaffoldList.map((scaffold: any, idx: number) => (
-                <Route path={ scaffold.component.name + '/*' }
-                       key={ 'route' + idx }
-                       element={ <scaffold.component
-                         defaultProps={ defaultProps }
-                         onLogEvent={ handleLog(scaffold.component.name) }
-                       /> }/>
-              )) }
-            </Routes>
+            <BlipThemeWrapper>
+              <Routes>
+                { ScaffoldList.map((scaffold: any, idx: number) => (
+                  <Route path={ scaffold.component.name + '/*' }
+                         key={ 'route' + idx }
+                         element={ <scaffold.component
+                           defaultProps={ defaultProps }
+                           onLogEvent={ handleLog(scaffold.component.name) }
+                         /> }/>
+                )) }
+              </Routes>
+            </BlipThemeWrapper>
           </ResizeWrapper>
         </div>
 
