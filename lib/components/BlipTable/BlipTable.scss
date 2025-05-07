@@ -41,13 +41,13 @@ table.BlipTable-table {
     }
 
     th {
+        font-weight: bold;
         height:      36px;
         position:    sticky;
         top:         0;
         background:  s.color(black);
         border:      none;
         padding:     0 10px;
-        font-weight: normal;
 
         // New inner element for the border
         &::before {

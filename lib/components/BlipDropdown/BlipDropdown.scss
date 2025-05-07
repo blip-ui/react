@@ -8,6 +8,7 @@ $padding: 20;
     @include s.theme-aware("background-color", "background");
     @include s.theme-aware("color", "text");
 
+    font-weight: bold;
     font-size:   xx-large;
     position:    relative;
     height:      36px;
