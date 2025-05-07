@@ -13,7 +13,8 @@ export const withBlipTheme = (Component: React.ComponentType<any>) => {
 };
 
 export const BlipThemeProvider = (props: any) => {
-  const [ theme, setTheme ] = React.useState<Theme>(props?.theme ?? 'basic');
+
+  const [ theme ] = React.useState<Theme>(props?.theme ?? 'basic');
 
   return <div
     className={ clsx(

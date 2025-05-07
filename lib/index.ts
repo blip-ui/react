@@ -1,10 +1,23 @@
-export { BlipThemeProvider, withBlipTheme } from './components/BlipThemeProvider/BlipThemeProvider.tsx';
 
-export { BlipActionRow } from './components/BlipActionRow/BlipActionRow';
-export { BlipButton } from './components/BlipButton/BlipButton';
-export { BlipDropdown } from './components/BlipDropdown/BlipDropdown';
-export { BlipFileDropzone } from './components/BlipFileDropzone/BlipFileDropzone';
-export { BlipInput } from './components/BlipInput/BlipInput';
-export { BlipLoadingIndicator } from './components/BlipLoadingIndicator/BlipLoadingIndicator';
-export { BlipModal } from './components/BlipModal/BlipModal';
-export { BlipTable } from './components/BlipTable/BlipTable';
+import { BlipActionRow as OriginalBlipActionRow } from './components/BlipActionRow/BlipActionRow';
+import { BlipButton as OriginalBlipButton } from './components/BlipButton/BlipButton';
+import { BlipDropdown as OriginalBlipDropdown } from './components/BlipDropdown/BlipDropdown';
+import { BlipFileDropzone as OriginalBlipFileDropzone } from './components/BlipFileDropzone/BlipFileDropzone';
+import { BlipInput as OriginalBlipInput } from './components/BlipInput/BlipInput';
+import { BlipLoadingIndicator as OriginalBlipLoadingIndicator } from './components/BlipLoadingIndicator/BlipLoadingIndicator';
+import { BlipModal as OriginalBlipModal } from './components/BlipModal/BlipModal';
+import { BlipTable as OriginalBlipTable } from './components/BlipTable/BlipTable';
+
+import { withBlipTheme } from './components/BlipThemeProvider/BlipThemeProvider';
+
+
+export const BlipActionRow = withBlipTheme(OriginalBlipActionRow);
+export const BlipButton = withBlipTheme(OriginalBlipButton);
+export const BlipDropdown = withBlipTheme(OriginalBlipDropdown);
+export const BlipFileDropzone = withBlipTheme(OriginalBlipFileDropzone);
+export const BlipInput = withBlipTheme(OriginalBlipInput);
+export const BlipLoadingIndicator = withBlipTheme(OriginalBlipLoadingIndicator);
+export const BlipModal = withBlipTheme(OriginalBlipModal);
+export const BlipTable = withBlipTheme(OriginalBlipTable);
+
+export { withBlipTheme, BlipThemeProvider } from './components/BlipThemeProvider/BlipThemeProvider'
