@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
-import ScaffoldPage from './pages/ScaffoldPage/ScaffoldPage.tsx';
+import ScaffoldPage from './pages/ScaffoldPage.tsx';
 import { AppProvider } from './pages/contexts';
 
 const App = (): React.ReactElement => {

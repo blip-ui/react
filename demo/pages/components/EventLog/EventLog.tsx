@@ -1,4 +1,4 @@
-import { useApp } from '../../../contexts';
+import { useApp } from '../../contexts';
 import React from 'react';
 
 const EventLog = (props: any) => {

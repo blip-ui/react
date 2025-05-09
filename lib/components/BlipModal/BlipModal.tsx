@@ -24,16 +24,19 @@ export const BlipModal = (props: any) => {
     }
   };
 
+  if (!props?.show) { return null; }
+
   return (
     <div className={ clsx(
-      `BlipModal-container 
-      ${ props?.show ? 'BlipModal-container-show' : 'BlipModal-inert' }`
+      'BlipModal-container',
+      props?.className
     ) }>
       <div onClick={ handleBackdropClick } className="BlipModal-backdrop"/>
       <div className="BlipModal-content-wrapper">
         <div className="BlipModal-content-frame">
+          { props?.title ? <div className="BlipModal-title">{ props?.title }</div> : null }
           <div className="BlipModal-content">
-            { props.children }
+            { props?.children }
           </div>
           { props?.actions && props?.actions?.length
             ?

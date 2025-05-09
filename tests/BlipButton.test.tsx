@@ -16,25 +16,20 @@ describe('BlipButton', () => {
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
 
-  it('applies size class correctly', () => {
-    render(<BlipButton label="Click me" size="short"/>);
-    expect(screen.getByText('Click me')).toHaveClass('BlipButton-size-short');
-  });
-
   it('renders with different sizes', () => {
-    const { rerender } = render(<BlipButton label="Click me" size="small"/>);
-    expect(screen.getByText('Click me')).toHaveClass('BlipButton-size-small');
+    const { rerender } = render(<BlipButton label="Click me" size="full"/>);
+    expect(screen.getByRole('button')).toHaveClass('BlipButton-size-full');
 
-    rerender(<BlipButton label="Click me" size="medium"/>);
-    expect(screen.getByText('Click me')).toHaveClass('BlipButton-size-medium');
+    rerender(<BlipButton label="Click me" size="auto"/>);
+    expect(screen.getByRole('button')).toHaveClass('BlipButton-size-auto');
 
-    rerender(<BlipButton label="Click me" size="large"/>);
-    expect(screen.getByText('Click me')).toHaveClass('BlipButton-size-large');
+    rerender(<BlipButton label="Click me" size="short"/>);
+    expect(screen.getByRole('button')).toHaveClass('BlipButton-size-short');
   });
 
   it('renders in disabled state', () => {
     render(<BlipButton label="Click me" disabled/>);
-    expect(screen.getByText('Click me')).toBeDisabled();
+    expect(screen.getByRole('button')).toBeDisabled();
   });
 
   it('does not call onClick when disabled', () => {

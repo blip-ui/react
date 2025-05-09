@@ -11,7 +11,7 @@ export const BlipFileDropzone = (props: any) => {
   const [ isDragging, setIsDragging ] = React.useState<boolean>(false);
 
   const onFileLoaded = React.useCallback((files: File[]): void => {
-    if (props.onFileLoaded) {
+    if (props?.onFileLoaded) {
       props.onFileLoaded(files);
     }
   }, []);
@@ -58,7 +58,8 @@ export const BlipFileDropzone = (props: any) => {
   return (
     <div className={ clsx(
       'BlipFileDropzone-container',
-      isDragging ? 'BlipFileDropzone-container-dragging' : ''
+      isDragging ? 'BlipFileDropzone-container-dragging' : '',
+      props?.className
     ) }
          ref={ dropRef }
          onDragEnter={ handleDragEnter }

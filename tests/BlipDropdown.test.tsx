@@ -29,7 +29,7 @@ describe('BlipDropdown', () => {
     render(<BlipDropdown options={options} onChange={onChange} />);
     fireEvent.click(screen.getByRole('button'));
     fireEvent.click(screen.getByText('Option 2'));
-    expect(onChange).toHaveBeenCalledWith('Option 2');
+    expect(onChange).toHaveBeenCalledWith({ id: '2', label: 'Option 2' });
     expect(screen.getByText('Option 2')).toBeInTheDocument();
   });
 
@@ -38,8 +38,8 @@ describe('BlipDropdown', () => {
     fireEvent.click(screen.getByRole('button'));
     fireEvent.click(screen.getByText('Option 2'));
     await waitFor(() => {
-      expect(screen.queryByText('Option 1')).not.toBeVisible();
-      expect(screen.queryByText('Option 3')).not.toBeVisible();
+      expect(screen.queryByText('Option 1')).toBeNull();
+      expect(screen.queryByText('Option 3')).toBeNull();
     });
   });
 

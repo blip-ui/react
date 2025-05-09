@@ -4,18 +4,19 @@ import clsx from 'clsx';
 import { BlipButton } from '@lib';
 
 export const BlipDropdown = (props: any) => {
-  const { size = 'auto', value, onChange, options = [] } = props;
 
   const [ isOpen, setIsOpen ] = useState<boolean>(false);
-  const [ selectedOption, setSelectedOption ] = useState<any>(null);
+  const [ selectedOption, setSelectedOption ] = useState<any | null>(null);
 
   const dropdownRef = useRef<HTMLButtonElement>(null);
 
   const handleToggle = () => setIsOpen(!isOpen);
 
   const handleSelect = (option: any) => {
+    if (props?.onChange) {
+      props.onChange(option);
+    }
     setSelectedOption(option);
-    onChange({ target: { value: option.id } });
     setIsOpen(false);
   };
 
@@ -33,11 +34,11 @@ export const BlipDropdown = (props: any) => {
   }, []);
 
   useEffect(() => {
-    const option = options.find((o: any) => o.id === value);
+    const option = ( props?.options ?? [] ).find((o: any) => o.id === props?.value);
     if (option) {
       setSelectedOption(option);
     }
-  }, [ value, options ]);
+  }, [ props?.value, props?.options ]);
 
   return (
     <BlipButton disabled={ props?.disabled }
@@ -45,13 +46,14 @@ export const BlipDropdown = (props: any) => {
                 suffix="+"
                 disableBump
                 ref={ dropdownRef }
+                onClick={ handleToggle }
     >
-      <div className="BlipDropdown-selected" onClick={ handleToggle }>
+      <div className="BlipDropdown-selected">
         { selectedOption ? selectedOption.label : 'Select an option' }
       </div>
       { isOpen && (
         <div className="BlipDropdown-options">
-          { options.map((option: any) => (
+          { ( props?.options ?? [] ).map((option: any) => (
             <div
               key={ option.id }
               className={ clsx(

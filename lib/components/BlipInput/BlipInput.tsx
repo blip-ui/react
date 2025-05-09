@@ -8,6 +8,7 @@ export const BlipInput = (props: any) => {
     <div className={ clsx(
       'BlipInput-container',
       'BlipInput-size-' + ( props?.size ?? 'auto' ),
+      props?.className
     ) }>
       <input className="BlipInput-input" { ...props } />
     </div>

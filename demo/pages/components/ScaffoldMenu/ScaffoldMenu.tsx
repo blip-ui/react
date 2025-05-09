@@ -1,5 +1,5 @@
 import './ScaffoldMenu.scss';
-import ScaffoldList from '../../../../pages/ScaffoldPage/ScaffoldList.ts';
+import ScaffoldList from '../../../pages/ScaffoldList.ts';
 import { NavLink } from 'react-router-dom';
 import React from 'react';
 

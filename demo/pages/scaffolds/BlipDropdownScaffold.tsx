@@ -6,12 +6,12 @@ const BlipDropdownScaffold = (_props: any): React.ReactElement => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (_props?.onLogEvent) {
-      _props.onLogEvent(e.target.value);
+      _props.onLogEvent(e);
     }
 
     setProps((prevState: any) => ( {
       ...prevState,
-      selected: e.target.value
+      selected: e
     } ));
   };
 

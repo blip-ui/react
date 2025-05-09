@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
 import { BlipInput } from '../BlipInput/BlipInput';
 import { deepEquals, dotNotationGet } from '../../utils';
+import clsx from 'clsx';
 
 export const BlipTable = (props: any) => {
 
@@ -65,7 +66,10 @@ export const BlipTable = (props: any) => {
   };
 
   return (
-    <div className="BlipTable-container">
+    <div className={ clsx(
+      'BlipTable-container',
+      props?.className
+    ) }>
 
       { rows.length > -1 ? (
         <div className="BlipTable-table-wrapper">
