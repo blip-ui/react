@@ -1,24 +1,27 @@
 import './BlipButton.scss';
 
 import clsx from 'clsx';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const BlipButton = (props: any) => {
 
   return (
-    <button
-      disabled={ props?.disabled }
-      className={ clsx(
-        'BlipButton',
-        'BlipButton-size-' + ( props?.size ?? 'auto' ),
-      ) }
-      onClick={ props?.onClick }
+    <button disabled={ props?.disabled }
+            className={ clsx(
+              'BlipButton',
+              'BlipButton-size-' + ( props?.size ?? 'auto' ),
+              props?.disableBump ? null : 'BlipButton-bump',
+              props?.className
+            ) }
+            onClick={ props?.onClick }
     >
-      { props?.icon ? <FontAwesomeIcon
-        className="BlipButton-icon"
-        icon={ props?.icon }/> : null }
-      { props?.label && props?.icon ? <span>&nbsp;</span> : '' }
-      { props?.label ?? '' }
+      <span className="BlipButton-content">
+        { props?.prefix ? <span className="BlipButton-content-prefix">{ props?.prefix ?? null }&nbsp;</span> : null }
+
+        <span className="BlipButton-content-center">{ props?.children ? props?.children : props?.label ?? '' }</span>
+
+        { props?.suffix ? <span className="BlipButton-content-suffix">&nbsp;{ props?.suffix }</span> : null }
+      </span>
+
     </button>
   );
 };

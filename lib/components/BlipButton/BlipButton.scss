@@ -9,7 +9,7 @@
         color:      white;
     }
 
-    &:active:not(:disabled) {
+    &:active:not(:disabled).BlipButton-bump {
         box-shadow: none;
         transform:  translateX(5px) translateY(5px);
     }
@@ -32,12 +32,6 @@
     width:       100%;
     display:     block;
 
-    &.collapsed {
-        width:   0;
-        margin:  10px 0 10px 0;
-        padding: 0;
-    }
-
 }
 
 .BlipButton-size-square { aspect-ratio: 1; }
@@ -48,14 +42,44 @@
 
 .BlipButton-size-full { width: calc(100% - 5px); }
 
+.BlipButton-content {
+    display:        flex;
+    flex-direction: row;
+    width:          100%;
+    align-items:    center;
+}
+
+.BlipButton-content-prefix {
+    align-items: flex-start;
+    white-space: nowrap;
+}
+
+.BlipButton-content-center {
+    align-content: center;
+    flex-grow:     1;
+    text-overflow: ellipsis;
+    white-space:   nowrap;
+}
+
+.BlipButton-content-suffix {
+    align-items: flex-end;
+    white-space: nowrap;
+}
+
 .BlipButton-size-hidden {
     width:   0;
     margin:  10px 0;
     padding: 0;
 }
 
-.BlipButton-icon {
+.BlipButton-icon-left {
     float:  left;
     left:   20px;
+    height: 100%;
+}
+
+.BlipButton-icon-right {
+    float:  right;
+    right:  20px;
     height: 100%;
 }

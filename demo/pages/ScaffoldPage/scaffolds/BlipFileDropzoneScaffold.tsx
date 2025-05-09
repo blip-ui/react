@@ -5,12 +5,6 @@ const BlipFileDropzoneScaffold = (_props: any): React.ReactElement => {
 
   const [ props, setProps ] = useState<any>({});
 
-  const handleClick = (e: any) => {
-    if (_props?.onLogEvent) {
-      _props.onLogEvent();
-    }
-  };
-
   useEffect(() => {
     setProps((prevState: any) => ( {
       ...prevState,
@@ -18,8 +12,7 @@ const BlipFileDropzoneScaffold = (_props: any): React.ReactElement => {
     } ));
   }, [ _props?.defaultProps ]);
 
-  return <BlipFileDropzone { ...props }
-                           onClick={ handleClick }/>;
+  return <BlipFileDropzone { ...props } />;
 
 };
 

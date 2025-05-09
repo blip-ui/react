@@ -12,9 +12,17 @@ export default defineConfig({
     libInjectCss(),
     dts({
       include: [ 'lib' ],
+      exclude: ['**/*.test.ts', '**/*.test.tsx', '**/test/**'],
       insertTypesEntry: true,
     })
   ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern-compiler'
+      }
+    }
+  },
   build: {
     lib: {
       entry: path.resolve(__dirname, 'lib/index.ts'),
@@ -23,18 +31,10 @@ export default defineConfig({
     rollupOptions: {
       external: [ 'react', 'react/jsx-runtime' ],
       input: Object.fromEntries(
-        // https://rollupjs.org/configuration-options/#input
         glob.sync('lib/**/*.{ts,tsx}', {
           ignore: [ 'lib/**/*.d.ts' ],
         }).map(file => [
-          // 1. The name of the entry point
-          // lib/nested/foo.js becomes nested/foo
-          path.relative(
-            'lib',
-            file.slice(0, file.length - path.extname(file).length)
-          ),
-          // 2. The absolute path to the entry file
-          // lib/nested/foo.ts becomes /project/lib/nested/foo.ts
+          path.relative( 'lib', file.slice(0, file.length - path.extname(file).length) ),
           fileURLToPath(new URL(file, import.meta.url))
         ])
       ),
@@ -49,7 +49,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@lib': path.resolve(__dirname, './lib'),
-      '@src': path.resolve(__dirname, './src'),
+      '@demo': path.resolve(__dirname, './demo'),
       '@dist': path.resolve(__dirname, './dist')
     }
   },

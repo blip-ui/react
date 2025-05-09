@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { BlipDropdown } from '@lib';
+import { BlipInput } from '@lib';
 
-const BlipDropdownScaffold = (_props: any): React.ReactElement => {
-
+const BlipInputScaffold = (_props: any): React.ReactElement => {
   const [ props, setProps ] = useState<any>({});
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -12,7 +11,7 @@ const BlipDropdownScaffold = (_props: any): React.ReactElement => {
 
     setProps((prevState: any) => ( {
       ...prevState,
-      selected: e.target.value
+      value: e.target.value
     } ));
   };
 
@@ -23,10 +22,11 @@ const BlipDropdownScaffold = (_props: any): React.ReactElement => {
     } ));
   }, [ _props?.defaultProps ]);
 
-  return <BlipDropdown { ...props }
-                       onChange={ handleChange }
+  return <BlipInput { ...props }
+                    onChange={ handleChange }
+
   />;
 
 };
 
-export default BlipDropdownScaffold;
+export default BlipInputScaffold;

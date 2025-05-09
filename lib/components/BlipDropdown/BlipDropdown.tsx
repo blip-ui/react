@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './BlipDropdown.scss';
 import clsx from 'clsx';
+import { BlipButton } from '@lib';
 
 export const BlipDropdown = (props: any) => {
   const { size = 'auto', value, onChange, options = [] } = props;
@@ -8,7 +9,7 @@ export const BlipDropdown = (props: any) => {
   const [ isOpen, setIsOpen ] = useState<boolean>(false);
   const [ selectedOption, setSelectedOption ] = useState<any>(null);
 
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLButtonElement>(null);
 
   const handleToggle = () => setIsOpen(!isOpen);
 
@@ -39,14 +40,11 @@ export const BlipDropdown = (props: any) => {
   }, [ value, options ]);
 
   return (
-    <div
-      ref={ dropdownRef }
-      className={ clsx(
-        'BlipDropdown-container',
-        `BlipDropdown-size-${ size }`,
-        props?.disabled && 'BlipDropdown-disabled',
-        props?.className
-      ) }
+    <BlipButton disabled={ props?.disabled }
+                size="full"
+                suffix="+"
+                disableBump
+                ref={ dropdownRef }
     >
       <div className="BlipDropdown-selected" onClick={ handleToggle }>
         { selectedOption ? selectedOption.label : 'Select an option' }
@@ -67,6 +65,6 @@ export const BlipDropdown = (props: any) => {
           )) }
         </div>
       ) }
-    </div>
+    </BlipButton>
   );
 };
