@@ -42,11 +42,11 @@ export const BlipDropdown = (props: any) => {
 
   return (
     <BlipButton disabled={ props?.disabled }
-                size="full"
                 suffix="+"
                 disableBump
                 ref={ dropdownRef }
                 onClick={ handleToggle }
+                size={ props?.size }
     >
       <div className="BlipDropdown-selected">
         { selectedOption ? selectedOption.label : 'Select an option' }
