@@ -49,16 +49,18 @@ function MyComponent() {
 
 ## Component API
 
-| Component              | Description                   | Props                                                                                                                                                          |
-|------------------------|-------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `BlipActionRow`        | Displays a row of actions     | • `progress`: number (0-100)<br>• `error`: boolean<br>• `status`: string                                                                                       |
-| `BlipButton`           | Customizable button           | • `size`: 'short' \| 'full' \| 'auto'<br>• `label`: string<br>• `icon`: IconDefinition<br>• `onClick`: function                                                |
-| `BlipDropdown`         | Dropdown selection            | • `size`: 'short' \| 'full' \| 'auto'<br>• `options`: Array<{id: string, label: string}><br>• `selected`: string<br>• `onChange`: function(selectedId: string) |
-| `BlipFileDropzone`     | File upload via drag and drop | • `onDrop`: function(files: File[])                                                                                                                            |
-| `BlipInput`            | Text input field              | • `size`: 'short' \| 'full' \| 'auto'<br>• `value`: string<br>• `onChange`: function(event: ChangeEvent)                                                       |
-| `BlipLoadingIndicator` | Loading spinner               | *No specific props*                                                                                                                                            |
-| `BlipModal`            | Modal dialog                  | • `show`: boolean<br>• `onClose`: function<br>• `actions`: string[]                                                                                            |
-| `BlipTable`            | Data table                    | • `columns`: Array<{label: string, field: string}><br>• `rows`: Array<object><br>• `onRowClick`: function(row: object)                                         |
+## Component API
+
+| Component              | Description                   | Props                                                                                                                                                                                                                                          |
+|------------------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `BlipActionRow`        | Displays a row of actions     | • `progress`: number (0-100)<br>• `error`: boolean<br>• `status`: string                                                                                                                                                                       |
+| `BlipButton`           | Customizable button           | • `size`: 'short' \| 'full' \| 'auto'<br>• `label`: string<br>• `onClick`: function<br>• `disabled`: boolean<br>• `disableBump`: boolean<br>• `className`: string<br>• `prefix`: ReactNode<br>• `suffix`: ReactNode<br>• `children`: ReactNode |
+| `BlipDropdown`         | Dropdown selection            | • `size`: 'short' \| 'full' \| 'auto'<br>• `options`: Array<{id: string, label: string}><br>• `selected`: string<br>• `onChange`: function(selectedId: string)                                                                                 |
+| `BlipFileDropzone`     | File upload via drag and drop | • `onDrop`: function(files: File[])                                                                                                                                                                                                            |
+| `BlipInput`            | Text input field              | • `size`: 'short' \| 'full' \| 'auto'<br>• `value`: string<br>• `onChange`: function(event: ChangeEvent)                                                                                                                                       |
+| `BlipLoadingIndicator` | Loading spinner               | *No specific props*                                                                                                                                                                                                                            |
+| `BlipModal`            | Modal dialog                  | • `show`: boolean<br>• `onClose`: function<br>• `actions`: string[]                                                                                                                                                                            |
+| `BlipTable`            | Data table                    | • `columns`: Array<{label: string, field: string}><br>• `rows`: Array<object><br>• `onRowClick`: function(row: object)                                                                                                                         |
 
 Each component is designed to mimic MS-DOS aesthetics while providing modern React functionality. Refer to individual component documentation for detailed usage instructions.
 
