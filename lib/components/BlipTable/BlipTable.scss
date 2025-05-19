@@ -14,7 +14,6 @@ $border-width: 2px;
 
 .BlipTable-table-wrapper {
     @include s.theme-aware("border-bottom-color", "background");
-    border-bottom: #{$border-width * 2} double;
     flex-grow:     1;
     overflow:      auto;
     width:         100%;
@@ -25,6 +24,7 @@ table.BlipTable-table {
     width:           100%;
     border-collapse: separate;
     border-spacing:  0;
+    border-bottom:   #{$border-width * 2} double;
 
     thead {
         position: sticky;
@@ -33,9 +33,9 @@ table.BlipTable-table {
     }
 
     .BlipTable-sticky-header {
-        position:   sticky;
-        top:        0;
-        z-index:    2;
+        position: sticky;
+        top:      0;
+        z-index:  2;
     }
 
     td {
