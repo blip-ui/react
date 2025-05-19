@@ -16,7 +16,7 @@ const BlipWallpaper: React.FC<BlipWallpaperProps> = ({ children, ...props }) => 
   }, [ props.show ]);
 
   return (
-    <div className=" BlipWallpaper-container" { ...props }t>
+    <div className=" BlipWallpaper-container" { ...props } >
       <div className={ clsx(
         'BlipWallpaper-full',
         `BlipWallpaper-mode-active`,
