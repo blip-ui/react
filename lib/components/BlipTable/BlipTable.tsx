@@ -27,12 +27,12 @@ export const BlipTable = (props: any) => {
     if (selectable) {
       let newSelected;
       if (multiple) {
-        const isSelected = selected.includes(row);
+        const isSelected = selected?.includes(row);
         newSelected = isSelected
           ? selected.filter(item => item !== row)
           : [...selected, row];
       } else {
-        newSelected = selected.includes(row) ? [] : [row];
+        newSelected = selected?.includes(row) ? [] : [row];
       }
       if (onSelectionChange) {
         onSelectionChange(newSelected);
@@ -132,11 +132,11 @@ export const BlipTable = (props: any) => {
             <tbody>
             { ( displayedRows ?? [] ).map((row: any, idx: number) => (
               <tr key={ `row_${ idx }` }
-                  className={ selected.includes(row) ? 'BlipTable-selected' : '' }
+                  className={ selected?.includes(row) ? 'BlipTable-selected' : '' }
               >
                 { selectable ?
                   <td>
-                    <BlipInput checked={ selected.includes(row) }
+                    <BlipInput checked={ selected?.includes(row) }
                                onChange={ () => handleRowClick(row, idx) }
                                type="checkbox"/>
                   </td>
