@@ -7,7 +7,7 @@ interface BlipWallpaperProps {
   show?: boolean;
 }
 
-const BlipWallpaper: React.FC<BlipWallpaperProps> = ({ children, ...props }) => {
+export const BlipWallpaper: React.FC<BlipWallpaperProps> = ({ children, ...props }) => {
 
   const [ showOverlay, setShowOverlay ] = React.useState(!props?.show);
 
@@ -30,5 +30,3 @@ const BlipWallpaper: React.FC<BlipWallpaperProps> = ({ children, ...props }) => 
     </div>
   );
 };
-
-export default BlipWallpaper;

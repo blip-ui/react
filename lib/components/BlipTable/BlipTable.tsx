@@ -16,54 +16,39 @@ export const BlipTable = (props: any) => {
     onRowClick,
     onSelectionChange,
     className,
-    initialSortColumn,
-    initialSortDirection,
+    selected = []
   } = props;
 
-  const [ displayedRows, setDisplayedRows ] = useState<any[]>([]);
-  const [ sortColumn, setSortColumn ] = useState<string | null>(initialSortColumn || null);
-  const [ sortDirection, setSortDirection ] = useState<string | null>(initialSortDirection || null);
-  const [ selected, setSelected ] = useState<any[]>([]);
+  const [ displayedRows, setDisplayedRows ] = useState<any[]>(props?.rows ?? []);
+  const [ sortColumn, setSortColumn ] = useState<string | null>(props?.initialSortColumn ?? null);
+  const [ sortDirection, setSortDirection ] = useState<string | null>(props?.initialSortDirection ?? null);
 
   const handleRowClick = useCallback((row: any, idx: number) => {
     if (selectable) {
-      setSelected(prevSelected => {
-        let newSelected;
-        if (multiple) {
-          const isSelected = prevSelected.includes(row);
-          newSelected = isSelected
-            ? prevSelected.filter(item => item !== row)
-            : [ ...prevSelected, row ];
-        } else {
-          newSelected = prevSelected.includes(row) ? [] : [ row ];
-        }
-        if (onSelectionChange) {
-          onSelectionChange(newSelected);
-        }
-        return newSelected;
-      });
+      let newSelected;
+      if (multiple) {
+        const isSelected = selected.includes(row);
+        newSelected = isSelected
+          ? selected.filter(item => item !== row)
+          : [...selected, row];
+      } else {
+        newSelected = selected.includes(row) ? [] : [row];
+      }
+      if (onSelectionChange) {
+        onSelectionChange(newSelected);
+      }
     }
     if (onRowClick) {
       onRowClick(row, idx);
     }
-  }, [ selectable, multiple, onRowClick, onSelectionChange ]);
-
-  useEffect(() => {
-    if (!selectable) {
-      setSelected([]);
-    }
-  }, [ selectable ]);
+  }, [selectable, multiple, onRowClick, onSelectionChange, selected]);
 
   const handleHeaderClick = useCallback((column: string) => {
     setSortColumn(prevSortColumn => {
       if (prevSortColumn === column) {
         setSortDirection(prevDirection => {
-          if (prevDirection === 'asc') {
-            return 'desc';
-          }
-          if (prevDirection === 'desc') {
-            return null;
-          }
+          if (prevDirection === 'asc') return 'desc';
+          if (prevDirection === 'desc') return null;
           return 'asc';
         });
         return column;
@@ -75,22 +60,20 @@ export const BlipTable = (props: any) => {
 
   const handleSelectAll = useCallback(() => {
     if (selected.length === displayedRows.length) {
-      setSelected([]);
       if (onSelectionChange) {
         onSelectionChange([]);
       }
     } else {
-      setSelected([ ...displayedRows ]);
       if (onSelectionChange) {
-        onSelectionChange([ ...displayedRows ]);
+        onSelectionChange([...displayedRows]);
       }
     }
-  }, [ displayedRows, selected, onSelectionChange ]);
+  }, [displayedRows, selected, onSelectionChange]);
 
   useEffect(() => {
     if (rows.length > 0) {
       if (sortColumn && sortDirection) {
-        const _displayedRows = [ ...rows ].sort((a: any, b: any) => {
+        const _displayedRows = [...rows].sort((a: any, b: any) => {
           const aValue = dotNotationGet(a, sortColumn);
           const bValue = dotNotationGet(b, sortColumn);
           if (sortDirection === 'asc') {
@@ -104,7 +87,7 @@ export const BlipTable = (props: any) => {
         setDisplayedRows(rows);
       }
     }
-  }, [ sortColumn, sortDirection, rows ]);
+  }, [sortColumn, sortDirection, rows]);
 
   const parseValue = (value: any, type?: string) => {
     if (type === 'date') {

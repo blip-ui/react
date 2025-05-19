@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { BlipTable } from '@lib';
 
 const randomLongText = (): string => {
@@ -6,7 +6,7 @@ const randomLongText = (): string => {
   return Array.from({ length: 100 }, () => strings[ Math.floor(Math.random() * ( strings.length - 1 )) ]).join('');
 };
 
-const testRows = Array.from({ length: 100 }, (_, index) => ( {
+const testRows: any[] = Array.from({ length: 100 }, (_, index) => ( {
   id: index + 1,
   name: `Test ${ index + 1 }`,
   money: ( Math.random() * 1000 ).toFixed(2),
@@ -14,9 +14,12 @@ const testRows = Array.from({ length: 100 }, (_, index) => ( {
   longText: randomLongText(),
 } ));
 
+testRows.unshift({ id: -1, name: 'Test' });
+
 const BlipTableScaffold = (_props: any): React.ReactElement => {
 
   const [ props, setProps ] = useState<any>({});
+  const [ selected, setSelected ] = useState<any[]>([ testRows[ 0 ] ]);
 
   const [ columns ] = useState<any[]>([
     { label: 'ID', field: 'id' },
@@ -26,12 +29,13 @@ const BlipTableScaffold = (_props: any): React.ReactElement => {
     { label: 'Long Text', field: 'longText' },
   ]);
 
-  const handleRowClick = (row: any) => {
-    setProps((prevState: any) => ( {
-      ...prevState,
-      selected: row
-    }));
-  };
+  const handleSelectionChange = useCallback((newSelected: any[]) => {
+    if (_props?.onLogEvent) {
+      _props.onLogEvent(newSelected);
+    }
+
+    setSelected(newSelected);
+  }, []);
 
   useEffect(() => {
     setProps((prevState: any) => ( {
@@ -41,9 +45,10 @@ const BlipTableScaffold = (_props: any): React.ReactElement => {
   }, [ _props?.defaultProps ]);
 
   return <BlipTable { ...props }
+                    selected={ selected }
                     rows={ testRows }
                     columns={ columns }
-                    onRowClick={ handleRowClick }
+                    onSelectionChange={ handleSelectionChange }
   />;
 
 };

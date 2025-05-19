@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import BlipWallpaper from '../../../lib/components/BlipWallpaper/BlipWallpaper.tsx';
+import { BlipWallpaper } from '@lib';
 
 const BlipWallpaperScaffold = (_props: any): React.ReactElement => {
 
