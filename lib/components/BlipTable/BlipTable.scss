@@ -1,8 +1,6 @@
-@use "sass:list";
-@use "sass:map";
 @use "@lib/styles" as s;
 
-$border-width: 2;
+$border-width: 2px;
 
 .BlipTable-container {
     font-weight:    normal;
@@ -15,15 +13,22 @@ $border-width: 2;
 }
 
 .BlipTable-table-wrapper {
+    @include s.theme-aware("border-bottom-color", "background");
+
+    border-bottom: #{$border-width * 2} double;
+
     flex-grow:     1;
     overflow:      auto;
     width:         100%;
-    border-bottom: #{$border-width * 2}px double white;
 }
 
 table.BlipTable-table {
 
     td {
+        @include s.theme-aware("border-left-color", "background");
+
+        border-left:     #{$border-width * 2} double;
+
         overflow-x:      hidden;
         max-width:       500px;
         text-overflow:   ellipsis;
@@ -31,12 +36,12 @@ table.BlipTable-table {
         height:          36px;
         padding:         0 10px;
         text-align:      center;
-        border-left:     #{$border-width * 2}px double white;
         border-collapse: separate;
         border-spacing:  0;
 
         &:last-child {
-            border-right: #{$border-width * 2}px double white;
+            @include s.theme-aware("border-right-color", "background");
+            border-right: #{$border-width * 2} double;
         }
     }
 
@@ -51,6 +56,9 @@ table.BlipTable-table {
 
         // New inner element for the border
         &::before {
+            @include s.theme-aware("border-left-color", "background");
+            @include s.theme-aware("border-top-color", "background");
+
             content:        "";
             position:       absolute;
             left:           0;
@@ -58,22 +66,25 @@ table.BlipTable-table {
             bottom:         0;
             height:         50%; // Half height of the cell
             border-bottom:  none;
-            border-left:    #{$border-width * 2}px double white;
-            border-top:     #{$border-width * 2}px double white;
             pointer-events: none; // Allows clicking through
+
+            border-left:    #{$border-width * 2} double;
+            border-top:     #{$border-width * 2} double;
         }
 
         &:last-child::before {
-            border-right: #{$border-width * 2}px double white;
+            @include s.theme-aware("border-right-color", "background");
+
+            border-right: #{$border-width * 2} double;
             right:        0;
         }
 
         &:first-child::after {
-            left: -#{$border-width * 2}px;
+            left: -#{$border-width * 2};
         }
 
         &:last-child::after {
-            right: -#{$border-width * 2}px;
+            right: -#{$border-width * 2};
         }
 
         div {
@@ -85,12 +96,20 @@ table.BlipTable-table {
             align-items:     center;
             justify-content: center;
 
+            input[type="checkbox"] {
+                position: relative;
+                z-index:  3;
+            }
+
             span {
+                @include s.theme-aware("color", "text");
+                @include s.theme-aware("background", "background");
+
                 white-space: nowrap;
-                background:  white;
-                color:       black;
                 padding:     0 5px;
                 z-index:     2;
+                display:     flex;
+                align-items: center;
             }
         }
     }
@@ -100,14 +119,21 @@ table.BlipTable-table {
     border-collapse: separate;
     border-spacing:  0;
 
-    tr:hover {
+    tr:not(.BlipTable-selected):hover {
         background: rgba(0, 0, 0, 0.3);
         cursor:     pointer;
     }
 }
 
 .BlipTable-selected {
-    transition: all 200ms linear;
-    background: white;
-    color:      black;
+    @include s.theme-aware("background", "background");
+    @include s.theme-aware("color", "text");
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    td {
+        @include s.theme-aware("color", "text");
+    }
 }

@@ -46,8 +46,11 @@ $title-height:   30px;
 }
 
 .BlipModal-content-frame {
+    @include s.theme-aware("border-color", "background");
+
+    border:         #{$border-width * 2} double;
+
     box-shadow:     5px 5px 0 0 darkgray;
-    border:         #{$border-width * 2} double white;
     background:     #0f0f4b;
     width:          calc(80% - #{$inset-distance * 2});
     height:         calc(80% - #{$inset-distance * 2});
@@ -95,8 +98,11 @@ $title-height:   30px;
 }
 
 .BlipModal-content {
+    @include s.theme-aware("border-bottom-color", "background");
+
+    border-bottom:  #{ $border-width * 2 } double;
+
     pointer-events: visible;
-    border-bottom:  #{ $border-width * 2 } double white;
     flex-grow:      1;
     overflow-y:     auto;
     padding:        10px;

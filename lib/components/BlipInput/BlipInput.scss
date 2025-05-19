@@ -7,8 +7,9 @@
 
 .BlipInput-input {
     font-weight: bold;
+
     &::selection {
-        @include s.theme-aware("background-color", "text");
+        @include s.theme-aware("background", "text");
         @include s.theme-aware("color", "background");
     }
 }

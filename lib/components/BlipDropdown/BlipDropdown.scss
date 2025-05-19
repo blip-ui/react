@@ -1,5 +1,3 @@
-@use "sass:list";
-@use "sass:map";
 @use "@lib/styles" as s;
 
 .BlipDropdown-option {
@@ -10,7 +8,7 @@
     cursor:  pointer;
 
     &:hover {
-        @include s.theme-aware("background-color", "text");
+        @include s.theme-aware("background-color", "disabled");
         @include s.theme-aware("color", "background");
     }
 }
@@ -31,7 +29,7 @@
 }
 
 .BlipDropdown-disabled {
-    @include s.theme-aware("background-color", "disabled");
+    @include s.theme-aware("background", "disabled");
     @include s.theme-aware("color", "white");
 
     cursor:         default;

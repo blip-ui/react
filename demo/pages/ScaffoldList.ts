@@ -6,12 +6,20 @@ import BlipDropdownScaffold from '../pages/scaffolds/BlipDropdownScaffold.tsx';
 import BlipActionRowScaffold from '../pages/scaffolds/BlipActionRowScaffold.tsx';
 import BlipModalScaffold from '../pages/scaffolds/BlipModalScaffold.tsx';
 import BlipFileDropzoneScaffold from '../pages/scaffolds/BlipFileDropzoneScaffold.tsx';
+import BlipWallpaperScaffold from './scaffolds/BlipWallpaperScaffold.tsx';
 
 export default [
   {
     component: BlipTableScaffold,
     controls: [
       { id: 'selectable', type: 'boolean', value: true },
+      { id: 'multiple', type: 'boolean', value: true },
+    ],
+  },
+  {
+    component: BlipWallpaperScaffold,
+    controls: [
+      { id: 'show', type: 'boolean', options: false },
     ],
   },
   {
@@ -59,7 +67,7 @@ export default [
   {
     component: BlipModalScaffold,
     controls: [
-      { id: 'title', type: 'text', value: 'Example Modal' }
+      { id: 'title', type: 'text', value: 'Example Modal' },
     ],
   },
   {
