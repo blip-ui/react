@@ -27,12 +27,12 @@ export const BlipTable = (props: any) => {
     if (selectable) {
       let newSelected;
       if (multiple) {
-        const isSelected = selected?.includes(row);
+        const isSelected = ( selected ?? [] ).includes(row);
         newSelected = isSelected
-          ? selected.filter(item => item !== row)
-          : [...selected, row];
+          ? ( selected ?? [] ).filter(item => item !== row)
+          : [ ...( selected ?? [] ), row ];
       } else {
-        newSelected = selected?.includes(row) ? [] : [row];
+        newSelected = ( selected ?? [] ).includes(row) ? [] : [ row ];
       }
       if (onSelectionChange) {
         onSelectionChange(newSelected);
@@ -41,14 +41,18 @@ export const BlipTable = (props: any) => {
     if (onRowClick) {
       onRowClick(row, idx);
     }
-  }, [selectable, multiple, onRowClick, onSelectionChange, selected]);
+  }, [ selectable, multiple, onRowClick, onSelectionChange, selected ]);
 
   const handleHeaderClick = useCallback((column: string) => {
     setSortColumn(prevSortColumn => {
       if (prevSortColumn === column) {
         setSortDirection(prevDirection => {
-          if (prevDirection === 'asc') return 'desc';
-          if (prevDirection === 'desc') return null;
+          if (prevDirection === 'asc') {
+            return 'desc';
+          }
+          if (prevDirection === 'desc') {
+            return null;
+          }
           return 'asc';
         });
         return column;
@@ -59,21 +63,21 @@ export const BlipTable = (props: any) => {
   }, []);
 
   const handleSelectAll = useCallback(() => {
-    if (selected.length === displayedRows.length) {
+    if (selected?.length === displayedRows.length) {
       if (onSelectionChange) {
         onSelectionChange([]);
       }
     } else {
       if (onSelectionChange) {
-        onSelectionChange([...displayedRows]);
+        onSelectionChange([ ...displayedRows ]);
       }
     }
-  }, [displayedRows, selected, onSelectionChange]);
+  }, [ displayedRows, selected, onSelectionChange ]);
 
   useEffect(() => {
     if (rows.length > 0) {
       if (sortColumn && sortDirection) {
-        const _displayedRows = [...rows].sort((a: any, b: any) => {
+        const _displayedRows = [ ...rows ].sort((a: any, b: any) => {
           const aValue = dotNotationGet(a, sortColumn);
           const bValue = dotNotationGet(b, sortColumn);
           if (sortDirection === 'asc') {
@@ -87,7 +91,7 @@ export const BlipTable = (props: any) => {
         setDisplayedRows(rows);
       }
     }
-  }, [sortColumn, sortDirection, rows]);
+  }, [ sortColumn, sortDirection, rows ]);
 
   const parseValue = (value: any, type?: string) => {
     if (type === 'date') {
@@ -111,17 +115,23 @@ export const BlipTable = (props: any) => {
           <table className="BlipTable-table">
             <thead>
             <tr>
-              { selectable ? <th>{ multiple ? <BlipInput checked={ selected.length === displayedRows.length } onChange={ handleSelectAll } type="checkbox"/> : null }</th> : null }
+              { selectable ? (
+                <th className="BlipTable-sticky-header">
+                  { multiple ? (
+                    <BlipInput checked={ selected?.length === displayedRows.length } onChange={ handleSelectAll } type="checkbox"/>
+                  ) : null }
+                </th>
+              ) : null }
               { ( columns ?? [] ).map((column: any, idx: number) => (
                 <th key={ `header_${ idx }` }
+                    className="BlipTable-sticky-header"
                     onClick={ () => handleHeaderClick(column.field) }
                 >
                   <div>
                     <span>
-                      { sortColumn === column.field
-                        ? <><FontAwesomeIcon icon={ sortDirection === 'asc' ? faCaretUp : faCaretDown }/>&nbsp;</>
-                        : null
-                      }
+                      { sortColumn === column.field ? (
+                        <><FontAwesomeIcon icon={ sortDirection === 'asc' ? faCaretUp : faCaretDown }/>&nbsp;</>
+                      ) : null }
                       { column.label }
                     </span>
                   </div>
@@ -132,11 +142,11 @@ export const BlipTable = (props: any) => {
             <tbody>
             { ( displayedRows ?? [] ).map((row: any, idx: number) => (
               <tr key={ `row_${ idx }` }
-                  className={ selected?.includes(row) ? 'BlipTable-selected' : '' }
+                  className={ ( selected ?? [] ).includes(row) ? 'BlipTable-selected' : '' }
               >
                 { selectable ?
                   <td>
-                    <BlipInput checked={ selected?.includes(row) }
+                    <BlipInput checked={ ( selected ?? [] ).includes(row) }
                                onChange={ () => handleRowClick(row, idx) }
                                type="checkbox"/>
                   </td>

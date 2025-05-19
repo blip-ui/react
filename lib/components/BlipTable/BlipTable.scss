@@ -4,7 +4,7 @@ $border-width: 2px;
 
 .BlipTable-container {
     font-weight:    normal;
-    position:       relative;
+    position:       absolute;
     display:        flex;
     flex-direction: column;
     overflow:       hidden;
@@ -14,15 +14,29 @@ $border-width: 2px;
 
 .BlipTable-table-wrapper {
     @include s.theme-aware("border-bottom-color", "background");
-
     border-bottom: #{$border-width * 2} double;
-
     flex-grow:     1;
     overflow:      auto;
     width:         100%;
+    height:        100%;
 }
 
 table.BlipTable-table {
+    width:           100%;
+    border-collapse: separate;
+    border-spacing:  0;
+
+    thead {
+        position: sticky;
+        top:      0;
+        z-index:  2;
+    }
+
+    .BlipTable-sticky-header {
+        position:   sticky;
+        top:        0;
+        z-index:    2;
+    }
 
     td {
         @include s.theme-aware("border-left-color", "background");
@@ -46,15 +60,12 @@ table.BlipTable-table {
     }
 
     th {
+        @include s.theme-aware("background", "text");
+
         font-weight: bold;
         height:      36px;
-        position:    sticky;
-        top:         0;
-        background:  s.color(black);
-        border:      none;
         padding:     0 10px;
 
-        // New inner element for the border
         &::before {
             @include s.theme-aware("border-left-color", "background");
             @include s.theme-aware("border-top-color", "background");
@@ -65,11 +76,13 @@ table.BlipTable-table {
             right:          0;
             bottom:         0;
             height:         50%; // Half height of the cell
+
             border-bottom:  none;
             pointer-events: none; // Allows clicking through
 
             border-left:    #{$border-width * 2} double;
             border-top:     #{$border-width * 2} double;
+            z-index:        -1;
         }
 
         &:last-child::before {
@@ -114,10 +127,7 @@ table.BlipTable-table {
         }
     }
 
-    width:           100%;
     height:          auto;
-    border-collapse: separate;
-    border-spacing:  0;
 
     tr:not(.BlipTable-selected):hover {
         background: rgba(0, 0, 0, 0.3);
