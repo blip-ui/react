@@ -105,18 +105,14 @@ export const BlipTable = (props: any) => {
   };
 
   return (
-    <div className={ clsx(
-      'BlipTable-container',
-      className
-    ) }>
-
+    <div className={ clsx('BlipTable', className) }>
       { rows.length > 0 ? (
-        <div className="BlipTable-table-wrapper">
-          <table className="BlipTable-table">
+        <div className="BlipTable__table-wrapper">
+          <table className="BlipTable__table">
             <thead>
             <tr>
               { selectable ? (
-                <th className="BlipTable-sticky-header">
+                <th className="BlipTable__header">
                   { multiple ? (
                     <BlipInput checked={ selected?.length === displayedRows.length } onChange={ handleSelectAll } type="checkbox"/>
                   ) : null }
@@ -124,7 +120,7 @@ export const BlipTable = (props: any) => {
               ) : null }
               { ( columns ?? [] ).map((column: any, idx: number) => (
                 <th key={ `header_${ idx }` }
-                    className="BlipTable-sticky-header"
+                    className="BlipTable__header"
                     onClick={ () => handleHeaderClick(column.field) }
                 >
                   <div>
@@ -142,7 +138,7 @@ export const BlipTable = (props: any) => {
             <tbody>
             { ( displayedRows ?? [] ).map((row: any, idx: number) => (
               <tr key={ `row_${ idx }` }
-                  className={ ( selected ?? [] ).includes(row) ? 'BlipTable-selected' : '' }
+                  className={ ( selected ?? [] ).includes(row) ? 'BlipTable__selected' : '' }
               >
                 { selectable ?
                   <td>

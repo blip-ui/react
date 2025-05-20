@@ -5,7 +5,7 @@ const EventLog = (props: any) => {
   const { events } = useApp();
 
   return (
-    <div className="EventLog-container">
+    <div className="EventLog">
       <h3>Event Log</h3>
       { (events ?? []).map((e: any, idx: number) => (
       <div key={ 'event' + idx }>

@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import ScaffoldList from './ScaffoldList';
 import './ScaffoldPage.scss';
-import ResizeWrapper from './components/ResizeWrapper/ResizeWrapper.tsx';
+import Resizer from './components/Resizer/Resizer.tsx';
 import Controls from './components/Controls/Controls.tsx';
 import ScaffoldMenu from './components/ScaffoldMenu/ScaffoldMenu.tsx';
 import EventLog from './components/EventLog/EventLog.tsx';
@@ -122,7 +122,7 @@ const ScaffoldPage = () => {
 
       <div className="right-panel">
         <div className="frame-panel" ref={ containerRef }>
-          <ResizeWrapper>
+          <Resizer>
             <Routes>
               { ScaffoldList.map((scaffold: any, idx: number) => (
                 <Route path={ scaffold.component.name + '/*' }
@@ -133,7 +133,7 @@ const ScaffoldPage = () => {
                        /> }/>
               )) }
             </Routes>
-          </ResizeWrapper>
+          </Resizer>
         </div>
 
         <div className={ clsx('bottom-panel', 'Outside-Theme') }>

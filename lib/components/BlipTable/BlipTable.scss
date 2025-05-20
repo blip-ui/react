@@ -2,7 +2,7 @@
 
 $border-width: 2px;
 
-.BlipTable-container {
+.BlipTable {
     font-weight:    normal;
     position:       absolute;
     display:        flex;
@@ -12,7 +12,7 @@ $border-width: 2px;
     height:         100%;
 }
 
-.BlipTable-table-wrapper {
+.BlipTable__table-wrapper {
     @include s.theme-aware("border-bottom-color", "background");
     flex-grow:     1;
     overflow:      auto;
@@ -20,7 +20,7 @@ $border-width: 2px;
     height:        100%;
 }
 
-table.BlipTable-table {
+table.BlipTable__table {
     width:           100%;
     border-collapse: separate;
     border-spacing:  0;
@@ -32,7 +32,7 @@ table.BlipTable-table {
         z-index:  2;
     }
 
-    .BlipTable-sticky-header {
+    .BlipTable__header {
         position: sticky;
         top:      0;
         z-index:  2;
@@ -129,13 +129,13 @@ table.BlipTable-table {
 
     height:          auto;
 
-    tr:not(.BlipTable-selected):hover {
+    tr:not(.BlipTable__selected):hover {
         background: rgba(0, 0, 0, 0.3);
         cursor:     pointer;
     }
 }
 
-.BlipTable-selected {
+.BlipTable__selected {
     @include s.theme-aware("background", "background");
     @include s.theme-aware("color", "text");
 

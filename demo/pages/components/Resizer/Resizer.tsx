@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
-import './ResizeWrapper.scss';
+import './Resizer.scss';
 
-const ResizeWrapper = (props: React.PropsWithChildren<any>): React.ReactElement => {
+const Resizer = (props: React.PropsWithChildren<any>): React.ReactElement => {
 
   const [ dragging, setDragging ] = useState<string[]>([]);
   const [ hitboxSize ] = useState<number>(props?.hitboxSize ?? 10);
@@ -87,7 +87,7 @@ const ResizeWrapper = (props: React.PropsWithChildren<any>): React.ReactElement 
 
       return (
         <div key={ 'resize-' + id }
-             className={ `resizer ${ id }` }
+             className={ `Resizer__resizer Resizer__resizer-${ id }` }
              style={ {
                width: hitboxSize,
                height: hitboxSize,
@@ -104,11 +104,11 @@ const ResizeWrapper = (props: React.PropsWithChildren<any>): React.ReactElement 
     [ 'left', 'right', 'top', 'bottom' ].map((id: string) => (
       <React.Fragment key={ 'resize-' + id }>
         <div style={ { [ id ]: bounds[ id ] - 10 } }
-             className={ `resizer ${ id } ${ dragging.includes(id) ? 'active' : '' }` }
+             className={ `Resizer__resizer Resizer__resizer-${ id } ${ dragging.includes(id) ? `Resizer__resizer-${id}--alert` : '' }` }
              onMouseDown={ handleMouseDown(id) }/>
 
         <div style={ { [ [ 'left', 'right' ].includes(id) ? 'width' : 'height' ]: bounds[ id ] } }
-             className={ `gutter ${ id } ${ outOfBounds.includes(id) ? 'alert' : '' }` }/>
+             className={ `Resizer__gutter Resizer__gutter-${ id } ${ outOfBounds.includes(id) ? `Resizer__gutter--alert` : '' }` }/>
       </React.Fragment>
     ));
 
@@ -122,7 +122,7 @@ const ResizeWrapper = (props: React.PropsWithChildren<any>): React.ReactElement 
         const height: number = Math.floor(boundingBox?.height - ( bounds.bottom + bounds.top ));
 
         return (
-          <div className="resize-label" style={ { left: bounds.left, top: bounds.top - 38 } }>
+          <div className="Resizer__resize-label" style={ { left: bounds.left, top: bounds.top - 38 } }>
             { width } x { height }
           </div>
         );
@@ -132,7 +132,7 @@ const ResizeWrapper = (props: React.PropsWithChildren<any>): React.ReactElement 
   };
 
   return (
-    <div className="resize-container"
+    <div className="Resizer"
          onMouseMove={ handleMouseMove }
          onMouseUp={ handleDragEnd }
          onMouseLeave={ handleDragEnd }
@@ -148,8 +148,8 @@ const ResizeWrapper = (props: React.PropsWithChildren<any>): React.ReactElement 
       { renderResizeGutters() }
       { renderResizeCorners() }
 
-      <div className="resized-wrapper" style={ { ...bounds } }>
-        <div className="resized-content">
+      <div className="Resizer__resized-wrapper" style={ { ...bounds } }>
+        <div className="Resizer__resized-content">
           { props.children }
         </div>
       </div>
@@ -158,4 +158,4 @@ const ResizeWrapper = (props: React.PropsWithChildren<any>): React.ReactElement 
 };
 
 
-export default ResizeWrapper;
+export default Resizer;
