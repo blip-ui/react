@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './Controls.scss';
-import clsx from 'clsx';
 
 const Controls = (props: any) => {
 
@@ -125,10 +124,10 @@ const Controls = (props: any) => {
   ;
 
   return (
-    <div className={ clsx('Controls-container', 'Outside-Theme') }>
+    <div className="Controls">
       <h3>Controls</h3>
       <form id="controls">
-        <table className="controls-table">
+        <table className="Controls__table">
           <thead>
           <tr>
             <th>Field</th>

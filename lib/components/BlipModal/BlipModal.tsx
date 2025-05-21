@@ -28,19 +28,19 @@ export const BlipModal = (props: any) => {
 
   return (
     <div className={ clsx(
-      'BlipModal-container',
+      'BlipModal',
       props?.className
     ) }>
-      <div onClick={ handleBackdropClick } className="BlipModal-backdrop"/>
-      <div className="BlipModal-content-wrapper">
-        <div className="BlipModal-content-frame">
-          { props?.title ? <div className="BlipModal-title">{ props?.title }</div> : null }
-          <div className="BlipModal-content">
+      <div onClick={ handleBackdropClick } className="BlipModal__backdrop"/>
+      <div className="BlipModal__wrapper">
+        <div className="BlipModal__content__frame">
+          { props?.title ? <div className="BlipModal__title">{ props?.title }</div> : null }
+          <div className="BlipModal__content">
             { props?.children }
           </div>
           { props?.actions && props?.actions?.length
             ?
-            <div className="BlipModal-actions">
+            <div className="BlipModal__actions">
               { ( props?.actions ?? [] ).includes('close')
                 ? <BlipButton onClick={ handleActionClick('close') } label={ 'Close' }/>
                 : null }

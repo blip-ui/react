@@ -25,8 +25,9 @@ export default [
   {
     component: BlipButtonScaffold,
     controls: [
-      { id: 'prefix', type: 'text', value: '+' },
-      { id: 'suffix', type: 'text', value: '-' },
+      { id: 'prefixText', type: 'text', value: '+' },
+      { id: 'suffixText', type: 'text', value: '-' },
+      { id: 'disableBump', type: 'boolean', value: false },
       { id: 'size', type: 'choice', options: [ 'short', 'full', 'auto' ], value: 'full' },
       { id: 'label', type: 'text', value: 'Test Button' },
     ],

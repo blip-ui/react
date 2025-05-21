@@ -11,28 +11,28 @@ describe('BlipFileDropzone', () => {
 
   it('applies custom className', () => {
     const { container } = render(<BlipFileDropzone className="custom-class"/>);
-    expect(container.querySelector('.BlipFileDropzone-container')).toHaveClass('custom-class');
+    expect(container.querySelector('.BlipFileDropzone')).toHaveClass('custom-class');
   });
 
   it('changes style when dragging over', () => {
     const { container } = render(<BlipFileDropzone/>);
-    const dropzone = container.querySelector('.BlipFileDropzone-container') as HTMLElement;
+    const dropzone = container.querySelector('.BlipFileDropzone') as HTMLElement;
     fireEvent.dragEnter(dropzone);
-    expect(dropzone).toHaveClass('BlipFileDropzone-container-dragging');
+    expect(dropzone).toHaveClass('BlipFileDropzone--dragging');
   });
 
   it('removes dragging style when drag leaves', () => {
     const { container } = render(<BlipFileDropzone/>);
-    const dropzone = container.querySelector('.BlipFileDropzone-container') as HTMLElement;
+    const dropzone = container.querySelector('.BlipFileDropzone') as HTMLElement;
     fireEvent.dragEnter(dropzone);
     fireEvent.dragLeave(dropzone);
-    expect(dropzone).not.toHaveClass('BlipFileDropzone-container-dragging');
+    expect(dropzone).not.toHaveClass('BlipFileDropzone--dragging');
   });
 
   it('calls onFileLoaded when files are dropped', () => {
     const onFileLoaded = vi.fn();
     const { container } = render(<BlipFileDropzone onFileLoaded={ onFileLoaded }/>);
-    const dropzone = container.querySelector('.BlipFileDropzone-container') as HTMLElement;
+    const dropzone = container.querySelector('.BlipFileDropzone') as HTMLElement;
     const file = new File([ 'test' ], 'test.csv', { type: 'text/csv' });
     fireEvent.drop(dropzone, { dataTransfer: { files: [ file ] } });
     expect(onFileLoaded).toHaveBeenCalledWith([ file ]);

@@ -18,13 +18,13 @@ describe('BlipButton', () => {
 
   it('renders with different sizes', () => {
     const { rerender } = render(<BlipButton label="Click me" size="full"/>);
-    expect(screen.getByRole('button')).toHaveClass('BlipButton-size-full');
+    expect(screen.getByRole('button')).toHaveClass('BlipButton__size-full');
 
     rerender(<BlipButton label="Click me" size="auto"/>);
-    expect(screen.getByRole('button')).toHaveClass('BlipButton-size-auto');
+    expect(screen.getByRole('button')).toHaveClass('BlipButton__size-auto');
 
     rerender(<BlipButton label="Click me" size="short"/>);
-    expect(screen.getByRole('button')).toHaveClass('BlipButton-size-short');
+    expect(screen.getByRole('button')).toHaveClass('BlipButton__size-short');
   });
 
   it('renders in disabled state', () => {

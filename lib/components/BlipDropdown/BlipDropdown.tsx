@@ -3,7 +3,7 @@ import './BlipDropdown.scss';
 import clsx from 'clsx';
 import { BlipButton } from '@lib';
 
-export const BlipDropdown = (props: any) => {
+export const BlipDropdown: React.FC<any> = (props: any) => {
 
   const [ isOpen, setIsOpen ] = useState<boolean>(false);
   const [ selectedOption, setSelectedOption ] = useState<any | null>(null);
@@ -41,24 +41,23 @@ export const BlipDropdown = (props: any) => {
   }, [ props?.value, props?.options ]);
 
   return (
-    <BlipButton disabled={ props?.disabled }
-                suffix="+"
+    <BlipButton suffix="+"
                 disableBump
                 ref={ dropdownRef }
                 onClick={ handleToggle }
-                size={ props?.size }
+                { ...props }
     >
-      <div className="BlipDropdown-selected">
+      <div className="BlipDropdown__selected">
         { selectedOption ? selectedOption.label : 'Select an option' }
       </div>
       { isOpen && (
-        <div className="BlipDropdown-options">
+        <div className="BlipDropdown__options">
           { ( props?.options ?? [] ).map((option: any) => (
             <div
               key={ option.id }
               className={ clsx(
-                'BlipDropdown-option',
-                { 'BlipDropdown-option-selected': option.id === selectedOption?.id }
+                'BlipDropdown__options__item',
+                { 'BlipDropdown__options__item--selected': option.id === selectedOption?.id }
               ) }
               onClick={ () => handleSelect(option) }
             >

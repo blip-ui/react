@@ -6,12 +6,12 @@ import { BlipLoadingIndicator } from '../lib';
 describe('BlipLoadingIndicator', () => {
   it('renders correctly', () => {
     const { container } = render(<BlipLoadingIndicator />);
-    expect(container.querySelector('.BlipLoadingIndicator-container')).toBeInTheDocument();
+    expect(container.querySelector('.BlipLoadingIndicator')).toBeInTheDocument();
   });
 
   it('contains the loader element', () => {
     const { container } = render(<BlipLoadingIndicator />);
-    expect(container.querySelector('.BlipLoadingIndicator-loader')).toBeInTheDocument();
+    expect(container.querySelector('.BlipLoadingIndicator__loader')).toBeInTheDocument();
   });
 
 });

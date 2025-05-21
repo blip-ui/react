@@ -6,7 +6,7 @@ $inset-distance: 10px;
 $line-height:    10px;
 $title-height:   30px;
 
-.BlipModal-container {
+.BlipModal {
     transition:      opacity 200ms ease-in-out;
     position:        fixed;
     overflow:        hidden;
@@ -18,100 +18,100 @@ $title-height:   30px;
     z-index:         2;
     align-content:   center;
     justify-content: center;
-}
 
-.BlipModal-backdrop {
-    position:   absolute;
-    width:      100%;
-    height:     100%;
-    top:        0;
-    left:       0;
-    bottom:     0;
-    right:      0;
-    display:    block;
-    z-index:    3;
-    background: rgba(0, 0, 0, 0.5);
-}
-
-.BlipModal-content-wrapper {
-    pointer-events:  none;
-    width:           100%;
-    height:          100%;
-    position:        relative;
-    display:         flex;
-    flex-direction:  column;
-    align-items:     center;
-    justify-content: center;
-    z-index:         4;
-}
-
-.BlipModal-content-frame {
-    @include s.theme-aware("border-color", "background");
-
-    border:         #{$border-width * 2} double;
-
-    box-shadow:     5px 5px 0 0 darkgray;
-    background:     #0f0f4b;
-    width:          calc(80% - #{$inset-distance * 2});
-    height:         calc(80% - #{$inset-distance * 2});
-    min-width:      480px;
-    min-height:     480px;
-    max-width:      980px;
-    max-height:     980px;
-    margin:         $inset-distance;
-    position:       relative;
-    display:        flex;
-    flex-direction: column;
-
-    &::before,
-    &::after {
-        content:  "";
-        position: absolute;
-        left:     -$inset-distance;
-        right:    -$inset-distance;
-        height:   $border-width;
+    &__backdrop {
+        position:   absolute;
+        width:      100%;
+        height:     100%;
+        top:        0;
+        left:       0;
+        bottom:     0;
+        right:      0;
+        display:    block;
+        z-index:    1;
+        background: rgba(0, 0, 0, 0.5);
     }
 
-    &::before {
-        top: calc(#{math.div($title-height, 2)} - #{$border-width});
+    &__wrapper {
+        pointer-events:  none;
+        width:           100%;
+        height:          100%;
+        position:        relative;
+        display:         flex;
+        flex-direction:  column;
+        align-items:     center;
+        justify-content: center;
+        z-index:         4;
     }
 
-    &::after {
-        top: calc(-#{math.div($title-height, 2)} + #{$border-width});
+    &__title {
+        @include s.theme-aware("background", "background");
+        @include s.theme-aware("color", "text");
+
+        position:        absolute;
+        top:             calc(-#{math.div($title-height, 2)});
+        transform:       translateX(12px);
+        padding:         0 10px;
+        height:          $title-height;
+        display:         flex;
+        align-items:     center;
+        justify-content: flex-start;
+        font-weight:     bold;
+        z-index:         1;
     }
-}
 
-.BlipModal-title {
-    @include s.theme-aware("background", "background");
-    @include s.theme-aware("color", "text");
+    &__content {
+        @include s.theme-aware("border-bottom-color", "background");
 
-    position:        absolute;
-    top:             calc(-#{math.div($title-height, 2)});
-    transform:       translateX(12px);
-    padding:         0 10px;
-    height:          $title-height;
-    display:         flex;
-    align-items:     center;
-    justify-content: flex-start;
-    font-weight:     bold;
-    z-index:         1;
-}
+        border-bottom:  #{ $border-width * 2 } double;
 
-.BlipModal-content {
-    @include s.theme-aware("border-bottom-color", "background");
+        pointer-events: visible;
+        flex-grow:      1;
+        overflow-y:     auto;
+        padding:        10px;
 
-    border-bottom:  #{ $border-width * 2 } double;
+        &__frame {
+            @include s.theme-aware("border-color", "background");
 
-    pointer-events: visible;
-    flex-grow:      1;
-    overflow-y:     auto;
-    padding:        10px;
-}
+            border:         #{$border-width * 2} double;
 
-.BlipModal-actions {
-    pointer-events:  visible;
-    display:         flex;
-    flex-direction:  row;
-    align-items:     center;
-    justify-content: flex-end;
+            box-shadow:     5px 5px 0 0 darkgray;
+            background:     #0f0f4b;
+            width:          calc(80% - #{$inset-distance * 2});
+            height:         calc(80% - #{$inset-distance * 2});
+            min-width:      480px;
+            min-height:     480px;
+            max-width:      980px;
+            max-height:     980px;
+            margin:         $inset-distance;
+            position:       relative;
+            display:        flex;
+            flex-direction: column;
+
+            &::before,
+            &::after {
+                content:  "";
+                position: absolute;
+                left:     -$inset-distance;
+                right:    -$inset-distance;
+                height:   $border-width;
+            }
+
+            &::before {
+                top: calc(#{math.div($title-height, 2)} - #{$border-width});
+            }
+
+            &::after {
+                top: calc(-#{math.div($title-height, 2)} + #{$border-width});
+            }
+        }
+    }
+
+    &__actions {
+        pointer-events:  visible;
+        display:         flex;
+        flex-direction:  row;
+        align-items:     center;
+        justify-content: flex-end;
+    }
 }

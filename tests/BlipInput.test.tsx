@@ -11,18 +11,18 @@ describe('BlipInput', () => {
 
   it('applies default size class', () => {
     const { container } = render(<BlipInput />);
-    expect(container.querySelector('.BlipInput-container')).toHaveClass('BlipInput-size-auto');
+    expect(container.querySelector('.BlipInput')).toHaveClass('BlipInput__size-auto');
   });
 
   it('applies custom size class', () => {
     const { container } = render(<BlipInput size="full" />);
-    expect(container.querySelector('.BlipInput-container')).toHaveClass('BlipInput-size-full');
+    expect(container.querySelector('.BlipInput')).toHaveClass('BlipInput__size-full');
   });
 
   it('passes through additional props to input element', () => {
     const { container } = render(<BlipInput placeholder="Enter text" type="password" />);
-    expect(container.querySelector('.BlipInput-input')).toHaveAttribute('placeholder', 'Enter text');
-    expect(container.querySelector('.BlipInput-input')).toHaveAttribute('type', 'password');
+    expect(container.querySelector('.BlipInput__input')).toHaveAttribute('placeholder', 'Enter text');
+    expect(container.querySelector('.BlipInput__input')).toHaveAttribute('type', 'password');
   });
 
   it('handles onChange event', () => {
@@ -40,7 +40,7 @@ describe('BlipInput', () => {
 
   it('applies custom className', () => {
     const { container } = render(<BlipInput className="custom-class" />);
-    expect(container.querySelector('.BlipInput-container')).toHaveClass('custom-class');
+    expect(container.querySelector('.BlipInput')).toHaveClass('custom-class');
   });
 
   it('applies disabled attribute', () => {

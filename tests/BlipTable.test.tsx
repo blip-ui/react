@@ -60,7 +60,7 @@ describe('BlipTable', () => {
 
   it('applies custom className', () => {
     const { container } = render(<BlipTable columns={mockColumns} rows={mockRows} className="custom-class" />);
-    expect(container.querySelector('.BlipTable-container')).toHaveClass('custom-class');
+    expect(container.querySelector('.BlipTable')).toHaveClass('custom-class');
   });
 
   it('renders currency type correctly', () => {

@@ -57,8 +57,8 @@ export const BlipFileDropzone = (props: any) => {
 
   return (
     <div className={ clsx(
-      'BlipFileDropzone-container',
-      isDragging ? 'BlipFileDropzone-container-dragging' : '',
+      'BlipFileDropzone',
+      isDragging ? 'BlipFileDropzone--dragging' : '',
       props?.className
     ) }
          ref={ dropRef }

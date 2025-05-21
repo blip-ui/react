@@ -16,15 +16,15 @@ export const BlipWallpaper: React.FC<BlipWallpaperProps> = ({ children, ...props
   }, [ props.show ]);
 
   return (
-    <div className=" BlipWallpaper-container" { ...props } >
+    <div className=" BlipWallpaper" { ...props } >
       <div className={ clsx(
-        'BlipWallpaper-full',
-        `BlipWallpaper-mode-active`,
+        'BlipWallpaper__full',
+        `BlipWallpaper--active`,
       ) }/>
       <div className={ clsx(
-        'BlipWallpaper-full',
-        'BlipWallpaper-overlay',
-        showOverlay ? null : 'BlipWallpaper-overlay-hidden'
+        'BlipWallpaper__full',
+        'BlipWallpaper__overlay',
+        showOverlay ? null : 'BlipWallpaper__overlay--hidden'
       ) }/>
       { children }
     </div>

@@ -23,7 +23,7 @@ describe('BlipModal', () => {
 
   it('applies custom className', () => {
     const { container } = render(<BlipModal show={ true } className="custom-class">Modal Content</BlipModal>);
-    expect(container.querySelector('.BlipModal-container')).toHaveClass('custom-class');
+    expect(container.querySelector('.BlipModal')).toHaveClass('custom-class');
   });
 
   it('renders title when provided', () => {
@@ -36,8 +36,7 @@ describe('BlipModal', () => {
       <p>Paragraph 1</p>
       <p>Paragraph 2</p>
     </BlipModal>);
-    expect(container.querySelector('.BlipModal-container')).toBeInTheDocument();
-    expect(container.querySelector('.BlipModal-container')).toBeInTheDocument();
+    expect(container.querySelector('.BlipModal')).toBeInTheDocument();
   });
 
   it('does not close modal when clicking inside content area', () => {

@@ -16,9 +16,9 @@ const ScaffoldMenu = () => {
   };
 
   return (
-    <div className="ScaffoldMenu-container">
+    <div className="ScaffoldMenu">
       <h3>Scaffolds</h3>
-      <select className="ScaffoldMenu-select" onChange={ handleThemeChange }>
+      <select className="ScaffoldMenu__select" onChange={ handleThemeChange }>
         { themes.map((theme: any, idx: number) => (
           <option key={ [ 'theme', idx ].join('_') } value={ theme }> { theme } </option>
         )) }
@@ -26,7 +26,7 @@ const ScaffoldMenu = () => {
       <hr/>
       { scaffoldList.map((scaffold: any, idx: number) => (
         <div key={ [ 'scaffold', idx ].join('_') }
-             className={ scaffold.path.startsWith(location?.pathname) ? 'active' : '' }>
+             className={ scaffold.path.startsWith(location?.pathname) ? 'ScaffoldMenu__item--active' : '' }>
           <NavLink key={ idx } to={ scaffold.path }>
             { scaffold.component.name.replace('Scaffold', '') }
           </NavLink>

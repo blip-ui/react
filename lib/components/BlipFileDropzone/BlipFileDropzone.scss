@@ -1,23 +1,11 @@
-
-.BlipFileDropzone-container {
+.BlipFileDropzone {
     display:    block;
     height:     100%;
     width:      100%;
     cursor:     pointer;
     transition: background 200ms linear;
 
-}
-
-.BlipFileDropzone-container-dragging {
-    border: 10px dashed white;
-}
-
-button.BlipFileDropzone-drop-zone {
-    //color:          white;
-    //display:        flex;
-    //flex-direction: column;
-    //width:          calc(100% - 30px);
-    //height:         calc(100% - 20px);
-    //justify-content: center;
-    //text-align:     center;
+    &--dragging {
+        border: 10px dashed white;
+    }
 }

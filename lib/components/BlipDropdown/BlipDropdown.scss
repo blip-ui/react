@@ -1,51 +1,45 @@
 @use "@lib/styles" as s;
 
-.BlipDropdown-option {
-    @include s.theme-aware("background-color", "background");
-    @include s.theme-aware("color", "text");
+.BlipDropdown {
 
-    padding: 10px 20px;
-    cursor:  pointer;
+    &--disabled {
+        @include s.theme-aware("background", "disabled");
+        @include s.theme-aware("color", "white");
 
-    &:hover {
-        @include s.theme-aware("background-color", "disabled");
-        @include s.theme-aware("color", "background");
+        cursor:         default;
+        pointer-events: none;
     }
-}
 
-.BlipDropdown-size-square { aspect-ratio: 1; }
+    &__options {
+        @include s.theme-aware("background", "background");
 
-.BlipDropdown-size-auto { width: auto; }
+        position:   absolute;
+        top:        100%;
+        left:       0;
+        right:      0;
+        border:     1px solid darkgray;
+        box-shadow: 5px 5px 0 0 darkgray;
+        z-index:    1000;
+        max-height: 200px;
+        overflow-y: auto;
 
-.BlipDropdown-size-short { width: 400px; }
+        &__item {
+            @include s.theme-aware("background-color", "background");
+            @include s.theme-aware("color", "text");
 
-.BlipDropdown-size-full { width: calc(100% - 45px); }
+            padding: 10px 20px;
+            cursor:  pointer;
 
-.BlipDropdown-size-hidden {
-    width:    0;
-    margin:   10px 0;
-    padding:  0;
-    overflow: hidden;
-}
+            &:hover {
+                @include s.theme-aware("background-color", "disabled");
+                @include s.theme-aware("color", "background");
+            }
 
-.BlipDropdown-disabled {
-    @include s.theme-aware("background", "disabled");
-    @include s.theme-aware("color", "white");
+            &--selected {
+                @include s.theme-aware("background-color", "disabled");
+                @include s.theme-aware("color", "background");
 
-    cursor:         default;
-    pointer-events: none;
-}
-
-.BlipDropdown-options {
-    @include s.theme-aware("background", "background");
-
-    position:   absolute;
-    top:        100%;
-    left:       0;
-    right:      0;
-    border:     1px solid darkgray;
-    box-shadow: 5px 5px 0 0 darkgray;
-    z-index:    1000;
-    max-height: 200px;
-    overflow-y: auto;
+            }
+        }
+    }
 }

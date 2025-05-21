@@ -1,4 +1,4 @@
-.BlipLoadingIndicator-container {
+.BlipLoadingIndicator {
     pointer-events:  none;
     position:        absolute;
     width:           100%;
@@ -11,20 +11,20 @@
     display:         flex;
     align-items:     center;
     justify-content: center;
-}
 
-.BlipLoadingIndicator-loader {
-    --c:         #fff;
-    width:       fit-content;
-    font-weight: normal;
-    color:       #0000;
-    overflow:    hidden;
-    text-shadow: 0 0 var(--c), 11ch 0 var(--c);
-    animation:   l6 2s infinite linear;
-}
+    &__loader {
+        --c:         #fff;
+        width:       fit-content;
+        font-weight: normal;
+        color:       #0000;
+        overflow:    hidden;
+        text-shadow: 0 0 var(--c), 11ch 0 var(--c);
+        animation:   l6 2s infinite linear;
 
-.BlipLoadingIndicator-loader:before {
-    content: "Loading...";
+        &:before {
+            content: "Loading...";
+        }
+    }
 }
 
 @keyframes l6 {

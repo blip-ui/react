@@ -1,7 +1,7 @@
 import { useApp } from '../../contexts';
 import React from 'react';
 
-const EventLog = (props: any) => {
+const EventLog = (_props: any) => {
   const { events } = useApp();
 
   return (

@@ -15,22 +15,22 @@ describe('BlipActionRow', () => {
 
   it('displays progress correctly', () => {
     const { container } = render(<BlipActionRow progress={ 50 }/>);
-    const progressElement = container.querySelector('.BlipActionRow-row-gradient');
+    const progressElement = container.querySelector('.BlipActionRow__gradient');
     expect(progressElement).toHaveStyle('width: 50%');
   });
 
   it('shows error state when error prop is true', () => {
     const { container } = render(<BlipActionRow error={ true }/>);
-    const gradientElement = container.querySelector('.BlipActionRow-row-gradient');
-    expect(gradientElement).toHaveClass('BlipActionRow-row-gradient-error');
+    const gradientElement = container.querySelector('.BlipActionRow__gradient');
+    expect(gradientElement).toHaveClass('BlipActionRow__gradient--error');
   });
 
   it('shows success state when progress is set and error is false', () => {
     const { container } = render(<BlipActionRow progress={ 100 } error={ false }/>);
-    const contentElement = container.querySelector('.BlipActionRow-row-content');
-    const gradientElement = container.querySelector('.BlipActionRow-row-gradient');
-    expect(contentElement).toHaveClass('BlipActionRow-row-content-success');
-    expect(gradientElement).toHaveClass('BlipActionRow-row-gradient-success');
+    const contentElement = container.querySelector('.BlipActionRow__content');
+    const gradientElement = container.querySelector('.BlipActionRow__gradient');
+    expect(contentElement).toHaveClass('BlipActionRow__content--success');
+    expect(gradientElement).toHaveClass('BlipActionRow__gradient--success');
   });
 
   it('displays status text correctly', () => {

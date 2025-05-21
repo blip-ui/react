@@ -34,54 +34,56 @@
     width:       100%;
     display:     block;
 
-}
 
-.BlipButton-size-square { aspect-ratio: 1; }
+    &__size {
+        &-square { aspect-ratio: 1; }
 
-.BlipButton-size-auto { width: auto; }
+        &-auto { width: auto; }
 
-.BlipButton-size-short { width: 400px; }
+        &-short { width: 400px; }
 
-.BlipButton-size-full { width: calc(100% - 5px); }
+        &-full { width: calc(100% - 5px); }
 
-.BlipButton-content {
-    display:        flex;
-    flex-direction: row;
-    width:          100%;
-    align-items:    center;
-}
+        &-hidden {
+            width:   0;
+            margin:  10px 0;
+            padding: 0;
+        }
+    }
 
-.BlipButton-content-prefix {
-    align-items: flex-start;
-    white-space: nowrap;
-}
+    &__content {
+        display:        flex;
+        flex-direction: row;
+        width:          100%;
+        align-items:    center;
 
-.BlipButton-content-center {
-    align-content: center;
-    flex-grow:     1;
-    text-overflow: ellipsis;
-    white-space:   nowrap;
-}
+        &-prefix {
+            align-items: flex-start;
+            white-space: nowrap;
+        }
 
-.BlipButton-content-suffix {
-    align-items: flex-end;
-    white-space: nowrap;
-}
+        &-center {
+            align-content: center;
+            flex-grow:     1;
+            text-overflow: ellipsis;
+            white-space:   nowrap;
+        }
 
-.BlipButton-size-hidden {
-    width:   0;
-    margin:  10px 0;
-    padding: 0;
-}
+        &-suffix {
+            align-items: flex-end;
+            white-space: nowrap;
+        }
+    }
 
-.BlipButton-icon-left {
-    float:  left;
-    left:   20px;
-    height: 100%;
-}
+    &__icon-left {
+        float:  left;
+        left:   20px;
+        height: 100%;
+    }
 
-.BlipButton-icon-right {
-    float:  right;
-    right:  20px;
-    height: 100%;
+    &__icon-right {
+        float:  right;
+        right:  20px;
+        height: 100%;
+    }
 }
