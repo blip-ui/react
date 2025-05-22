@@ -41,7 +41,7 @@ export const BlipDropdown: React.FC<any> = (props: any) => {
   }, [ props?.value, props?.options ]);
 
   return (
-    <BlipButton suffix="+"
+    <BlipButton suffixText="+"
                 disableBump
                 ref={ dropdownRef }
                 onClick={ handleToggle }

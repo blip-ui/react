@@ -139,6 +139,8 @@ table.BlipTable__table {
     @include s.theme-aware("background", "background");
     @include s.theme-aware("color", "text");
 
+    font-weight: bold;
+
     &:hover {
         cursor: pointer;
     }

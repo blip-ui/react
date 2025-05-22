@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import './BlipTable.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
@@ -11,6 +11,7 @@ export const BlipTable = (props: any) => {
   const {
     rows = [],
     columns = [],
+    rowKey = 'id',
     selectable = false,
     multiple = false,
     onRowClick,
@@ -19,20 +20,34 @@ export const BlipTable = (props: any) => {
     selected = []
   } = props;
 
-  const [ displayedRows, setDisplayedRows ] = useState<any[]>(props?.rows ?? []);
   const [ sortColumn, setSortColumn ] = useState<string | null>(props?.initialSortColumn ?? null);
   const [ sortDirection, setSortDirection ] = useState<string | null>(props?.initialSortDirection ?? null);
 
+  const displayedRows = useMemo(() => {
+    if (sortColumn && sortDirection) {
+      return [ ...rows ].sort((a, b) => {
+        const aVal = dotNotationGet(a, sortColumn);
+        const bVal = dotNotationGet(b, sortColumn);
+        return sortDirection === 'asc'
+          ? aVal > bVal ? 1 : -1
+          : aVal < bVal ? 1 : -1;
+      });
+    }
+    return rows;
+  }, [ rows, sortColumn, sortDirection ]);
+
+  const isRowSelected = (row: any): boolean => ( selected ?? [] ).some((sel: any) => dotNotationGet(sel, rowKey) === dotNotationGet(row, rowKey));
+
   const handleRowClick = useCallback((row: any, idx: number) => {
     if (selectable) {
-      let newSelected;
+      let newSelected: any;
       if (multiple) {
-        const isSelected = ( selected ?? [] ).includes(row);
+        const isSelected: boolean = isRowSelected(row);
         newSelected = isSelected
           ? ( selected ?? [] ).filter(item => item !== row)
           : [ ...( selected ?? [] ), row ];
       } else {
-        newSelected = ( selected ?? [] ).includes(row) ? [] : [ row ];
+        newSelected = isRowSelected(row) ? [] : [ row ];
       }
       if (onSelectionChange) {
         onSelectionChange(newSelected);
@@ -73,25 +88,6 @@ export const BlipTable = (props: any) => {
       }
     }
   }, [ displayedRows, selected, onSelectionChange ]);
-
-  useEffect(() => {
-    if (rows.length > 0) {
-      if (sortColumn && sortDirection) {
-        const _displayedRows = [ ...rows ].sort((a: any, b: any) => {
-          const aValue = dotNotationGet(a, sortColumn);
-          const bValue = dotNotationGet(b, sortColumn);
-          if (sortDirection === 'asc') {
-            return aValue > bValue ? 1 : -1;
-          } else {
-            return aValue < bValue ? 1 : -1;
-          }
-        });
-        setDisplayedRows(_displayedRows);
-      } else {
-        setDisplayedRows(rows);
-      }
-    }
-  }, [ sortColumn, sortDirection, rows ]);
 
   const parseValue = (value: any, type?: string) => {
     if (type === 'date') {
@@ -138,11 +134,11 @@ export const BlipTable = (props: any) => {
             <tbody>
             { ( displayedRows ?? [] ).map((row: any, idx: number) => (
               <tr key={ `row_${ idx }` }
-                  className={ ( selected ?? [] ).includes(row) ? 'BlipTable__selected' : '' }
+                  className={ isRowSelected(row) ? 'BlipTable__selected' : '' }
               >
                 { selectable ?
                   <td>
-                    <BlipInput checked={ ( selected ?? [] ).includes(row) }
+                    <BlipInput checked={ isRowSelected(row) }
                                onChange={ () => handleRowClick(row, idx) }
                                type="checkbox"/>
                   </td>

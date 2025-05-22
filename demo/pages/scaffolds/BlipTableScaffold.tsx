@@ -7,14 +7,14 @@ const randomLongText = (): string => {
 };
 
 const testRows: any[] = Array.from({ length: 2 }, (_, index) => ( {
-  id: index + 1,
+  id: '' + index + 1,
   name: `Test ${ index + 1 }`,
   money: ( Math.random() * 1000 ).toFixed(2),
   date: new Date(Date.now() - Math.random() * 10000000),
   longText: randomLongText(),
 } ));
 
-testRows.unshift({ id: -1, name: 'Test' });
+testRows.unshift({ id: '-1', name: 'Test' });
 
 const BlipTableScaffold = (_props: any): React.ReactElement => {
 
