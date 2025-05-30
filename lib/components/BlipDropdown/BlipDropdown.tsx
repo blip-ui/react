@@ -48,7 +48,7 @@ export const BlipDropdown: React.FC<any> = (props: any) => {
                 { ...props }
     >
       <div className="BlipDropdown__selected">
-        { selectedOption?.label ?? props?.defaultLabel ?? 'Select an option' }
+        { selectedOption?.label ?? props?.label ?? 'Select an option' }
       </div>
       { isOpen && (
         <div className="BlipDropdown__options">

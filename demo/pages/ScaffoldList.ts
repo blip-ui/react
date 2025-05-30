@@ -48,6 +48,7 @@ export default [
     component: BlipDropdownScaffold,
     controls: [
       { id: 'width', type: 'choice', options: [ 'short', 'full', 'auto' ], value: 'full' },
+      { id: 'label', type: 'text', value: 'Test dropdown label' },
       { id: 'selected', type: 'text', value: 'option1' },
       { id: 'disabled', type: 'boolean', value: false },
       {
