@@ -5,46 +5,46 @@ import { BlipInput } from '../lib';
 
 describe('BlipInput', () => {
   it('renders correctly', () => {
-    render(<BlipInput />);
+    render(<BlipInput/>);
     expect(screen.getByRole('textbox')).toBeInTheDocument();
   });
 
   it('applies default size class', () => {
-    const { container } = render(<BlipInput />);
+    const { container } = render(<BlipInput/>);
     expect(container.querySelector('.BlipInput')).toHaveClass('BlipInput__size-auto');
   });
 
   it('applies custom size class', () => {
-    const { container } = render(<BlipInput size="full" />);
+    const { container } = render(<BlipInput size="full"/>);
     expect(container.querySelector('.BlipInput')).toHaveClass('BlipInput__size-full');
   });
 
   it('passes through additional props to input element', () => {
-    const { container } = render(<BlipInput placeholder="Enter text" type="password" />);
+    const { container } = render(<BlipInput placeholder="Enter text" type="password"/>);
     expect(container.querySelector('.BlipInput__input')).toHaveAttribute('placeholder', 'Enter text');
     expect(container.querySelector('.BlipInput__input')).toHaveAttribute('type', 'password');
   });
 
   it('handles onChange event', () => {
     const handleChange = vi.fn();
-    render(<BlipInput onChange={handleChange} />);
+    render(<BlipInput onChange={ handleChange }/>);
     const input = screen.getByRole('textbox');
     fireEvent.change(input, { target: { value: 'test' } });
     expect(handleChange).toHaveBeenCalledTimes(1);
   });
 
   it('applies value prop correctly', () => {
-    render(<BlipInput value="initial value" />);
+    render(<BlipInput value="initial value"/>);
     expect(screen.getByRole('textbox')).toHaveValue('initial value');
   });
 
   it('applies custom className', () => {
-    const { container } = render(<BlipInput className="custom-class" />);
+    const { container } = render(<BlipInput className="custom-class"/>);
     expect(container.querySelector('.BlipInput')).toHaveClass('custom-class');
   });
 
   it('applies disabled attribute', () => {
-    render(<BlipInput disabled />);
+    render(<BlipInput disabled/>);
     expect(screen.getByRole('textbox')).toBeDisabled();
   });
 });

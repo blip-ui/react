@@ -40,7 +40,7 @@ describe('BlipButton', () => {
   });
 
   it('renders with children instead of label', () => {
-    render(<BlipButton><span>Custom content</span></BlipButton>)
-    expect(screen.getByText('Custom content')).toBeInTheDocument()
-  })
+    render(<BlipButton><span>Custom content</span></BlipButton>);
+    expect(screen.getByText('Custom content')).toBeInTheDocument();
+  });
 });

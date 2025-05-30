@@ -11,12 +11,12 @@ describe('BlipDropdown', () => {
   ];
 
   it('renders with a default selected option', () => {
-    render(<BlipDropdown options={options} value="1" />);
+    render(<BlipDropdown options={ options } value="1"/>);
     expect(screen.getByText('Option 1')).toBeInTheDocument();
   });
 
   it('opens the dropdown when clicked', async () => {
-    render(<BlipDropdown options={options} />);
+    render(<BlipDropdown options={ options }/>);
     fireEvent.click(screen.getByRole('button'));
     await waitFor(() => {
       expect(screen.getByText('Option 2')).toBeVisible();
@@ -26,7 +26,7 @@ describe('BlipDropdown', () => {
 
   it('selects an option when clicked', async () => {
     const onChange = vi.fn();
-    render(<BlipDropdown options={options} onChange={onChange} />);
+    render(<BlipDropdown options={ options } onChange={ onChange }/>);
     fireEvent.click(screen.getByRole('button'));
     fireEvent.click(screen.getByText('Option 2'));
     expect(onChange).toHaveBeenCalledWith({ id: '2', label: 'Option 2' });
@@ -34,7 +34,7 @@ describe('BlipDropdown', () => {
   });
 
   it('closes the dropdown when an option is selected', async () => {
-    render(<BlipDropdown options={options} />);
+    render(<BlipDropdown options={ options }/>);
     fireEvent.click(screen.getByRole('button'));
     fireEvent.click(screen.getByText('Option 2'));
     await waitFor(() => {
@@ -44,7 +44,7 @@ describe('BlipDropdown', () => {
   });
 
   it('displays placeholder text when no option is selected', () => {
-    render(<BlipDropdown options={options} placeholder="Select an option" />);
+    render(<BlipDropdown options={ options } placeholder="Select an option"/>);
     expect(screen.getByText('Select an option')).toBeInTheDocument();
   });
 });

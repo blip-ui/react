@@ -71,7 +71,7 @@ export const BlipFileDropzone = (props: any) => {
                   label={ 'Upload your file' }
                   onClick={ handleClick }/>
       <input type="file"
-             accept=".csv"
+             accept={ props?.accept || '*' }
              ref={ fileInputRef }
              style={ { display: 'none' } }
              onChange={ handleFileInput }
