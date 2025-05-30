@@ -69,6 +69,7 @@ $border-width: 2px;
             font-weight: bold;
             height:      36px;
             padding:     0 10px;
+            position:    relative;
 
             &::before {
                 @include s.theme-aware("border-left-color", "background");
@@ -115,6 +116,7 @@ $border-width: 2px;
 
                 input[type="checkbox"] {
                     position: relative;
+                    z-index:  2;
                 }
 
                 span {

@@ -61,7 +61,7 @@ export const BlipTable = (props: any) => {
     if (paginated && tableWrapperRef.current) {
       const wrapperHeight = tableWrapperRef.current.clientHeight;
       const rowHeight = 40;
-      const visibleRows = Math.floor(wrapperHeight / rowHeight);
+      const visibleRows = Math.floor(wrapperHeight / rowHeight) - 2;
       setRowsPerPage(visibleRows);
     } else {
       setRowsPerPage(rows.length);
@@ -219,28 +219,27 @@ export const BlipTable = (props: any) => {
             )) }
             </tbody>
           </table>
-
-        </div>
-      ) : null }
-      { paginated ? (
-        <div className="BlipTable__pagination">
-          <BlipButton width="full" disabled={ page === 1 } label={ <FontAwesomeIcon icon={ faBackward }/> } onClick={ handleFirstPage }/>
-          <BlipButton width="full" disabled={ page === 1 } label={ <FontAwesomeIcon icon={ faCaretLeft }/> } onClick={ handlePreviousPage }/>
-          <BlipInput value={ inputPage }
-                     width="full"
-                     onChange={ (e: React.ChangeEvent<HTMLInputElement>) => setInputPage(e.target.value) }
-                     onBlur={ (e: React.ChangeEvent<HTMLInputElement>) => {
-                       if (!isNaN(Number(e.target.value))) {
-                         const newPage = parseInt(e.target.value, 10);
-                         if (!isNaN(newPage) && newPage > 0 && newPage <= totalPages && newPage !== page) {
-                           setPage(newPage);
-                         }
-                       } else {
-                         setInputPage('' + page);
-                       }
-                     } }/>
-          <BlipButton width="full" disabled={ page === totalPages } label={ <FontAwesomeIcon icon={ faCaretRight }/> } onClick={ handleNextPage }/>
-          <BlipButton width="full" disabled={ page === totalPages } label={ <FontAwesomeIcon icon={ faForward }/> } onClick={ handleLastPage }/>
+          { paginated ? (
+            <div className="BlipTable__pagination">
+              <BlipButton width="full" disabled={ page === 1 } label={ <FontAwesomeIcon icon={ faBackward }/> } onClick={ handleFirstPage }/>
+              <BlipButton width="full" disabled={ page === 1 } label={ <FontAwesomeIcon icon={ faCaretLeft }/> } onClick={ handlePreviousPage }/>
+              <BlipInput value={ inputPage }
+                         width="full"
+                         onChange={ (e: React.ChangeEvent<HTMLInputElement>) => setInputPage(e.target.value) }
+                         onBlur={ (e: React.ChangeEvent<HTMLInputElement>) => {
+                           if (!isNaN(Number(e.target.value))) {
+                             const newPage = parseInt(e.target.value, 10);
+                             if (!isNaN(newPage) && newPage > 0 && newPage <= totalPages && newPage !== page) {
+                               setPage(newPage);
+                             }
+                           } else {
+                             setInputPage('' + page);
+                           }
+                         } }/>
+              <BlipButton width="full" disabled={ page === totalPages } label={ <FontAwesomeIcon icon={ faCaretRight }/> } onClick={ handleNextPage }/>
+              <BlipButton width="full" disabled={ page === totalPages } label={ <FontAwesomeIcon icon={ faForward }/> } onClick={ handleLastPage }/>
+            </div>
+          ) : null }
         </div>
       ) : null }
     </div>
