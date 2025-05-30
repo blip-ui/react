@@ -63,6 +63,8 @@ export default [
     component: BlipFileDropzoneScaffold,
     controls: [
       { id: 'size', type: 'choice', options: [ 'short', 'full', 'auto' ], value: 'full' },
+      { id: 'accept', type: 'choice', options: [ '.xlsx', '.csv' ], value: '.xlsx' },
+      { id: 'multiple', type: 'boolean', value: false },
     ],
   },
   {

@@ -71,11 +71,11 @@ export const BlipFileDropzone = (props: any) => {
                   label={ 'Upload your file' }
                   onClick={ handleClick }/>
       <input type="file"
-             accept={ props?.accept || '*' }
+             accept={ props?.accept }
              ref={ fileInputRef }
              style={ { display: 'none' } }
              onChange={ handleFileInput }
-             multiple
+             multiple={ props?.multiple }
       />
     </div>
   );

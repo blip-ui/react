@@ -5,6 +5,12 @@ const BlipFileDropzoneScaffold = (_props: any): React.ReactElement => {
 
   const [ props, setProps ] = useState<any>({});
 
+  const handleFileLoaded = (e): void => {
+    if (_props?.onLogEvent) {
+      _props.onLogEvent(e);
+    }
+  };
+
   useEffect(() => {
     setProps((prevState: any) => ( {
       ...prevState,
@@ -12,7 +18,9 @@ const BlipFileDropzoneScaffold = (_props: any): React.ReactElement => {
     } ));
   }, [ _props?.defaultProps ]);
 
-  return <BlipFileDropzone { ...props } />;
+  return <BlipFileDropzone { ...props }
+                           onFileLoaded={ handleFileLoaded }
+  />;
 
 };
 
