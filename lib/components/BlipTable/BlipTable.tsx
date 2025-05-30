@@ -44,7 +44,7 @@ export const BlipTable = (props: any) => {
     multiple = false,
     onSelectionChange,
     className,
-    paginated = true,
+    paginated = false,
     selected = []
   } = props;
 
