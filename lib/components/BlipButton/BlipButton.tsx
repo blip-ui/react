@@ -4,7 +4,7 @@ import React, { ButtonHTMLAttributes, PropsWithChildren } from 'react';
 import clsx from 'clsx';
 
 interface BlipButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  size?: 'auto' | string;
+  width?: 'auto' | string;
   disableBump?: boolean;
   prefixText?: React.ReactNode;
   suffixText?: React.ReactNode;
@@ -13,31 +13,32 @@ interface BlipButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export const BlipButton: React.FC<PropsWithChildren<BlipButtonProps>> = (
   {
-    size = 'auto',
+    width = 'auto',
     disableBump = false,
-    prefixText,
-    suffixText,
+    prefixText = null,
+    suffixText = null,
     label,
     children,
     className,
-    ...props
+    ...buttonProps
   }) => {
 
   return (
-    <button className={ clsx(
-      'BlipButton',
-      `BlipButton__size-${ size }`,
-      !disableBump && 'BlipButton-bump',
-      className
-    ) }
-            { ...props }
+    <button
+      className={ clsx(
+        'BlipButton',
+        `BlipButton__width-${ width }`,
+        !disableBump && 'BlipButton-bump',
+        className
+      ) }
+      { ...buttonProps }
     >
       <span className="BlipButton__content">
-        { prefixText ? <span className="BlipButton__content-prefix">{ prefixText }&nbsp;</span> : null }
+        { prefixText ? <span className="BlipButton__content-prefix">{ prefixText ?? null }&nbsp;</span> : null }
 
         <span className="BlipButton__content-center">{ children || label || '' }</span>
 
-        { suffixText ? <span className="BlipButton__content-suffix">&nbsp;{ suffixText }</span> : null }
+        { suffixText ? <span className="BlipButton__content-suffix">&nbsp;{ suffixText ?? null }</span> : null }
       </span>
 
     </button>

@@ -13,6 +13,7 @@ export default [
     component: BlipTableScaffold,
     controls: [
       { id: 'selectable', type: 'boolean', value: true },
+      { id: 'paginated', type: 'boolean', value: true },
       { id: 'multiple', type: 'boolean', value: true },
     ],
   },
@@ -28,14 +29,14 @@ export default [
       { id: 'prefixText', type: 'text', value: '+' },
       { id: 'suffixText', type: 'text', value: '-' },
       { id: 'disableBump', type: 'boolean', value: false },
-      { id: 'size', type: 'choice', options: [ 'short', 'full', 'auto' ], value: 'full' },
+      { id: 'width', type: 'choice', options: [ 'short', 'full', 'auto' ], value: 'full' },
       { id: 'label', type: 'text', value: 'Test Button' },
     ],
   },
   {
     component: BlipInputScaffold,
     controls: [
-      { id: 'size', type: 'choice', options: [ 'short', 'full', 'auto' ], value: 'full' },
+      { id: 'width', type: 'choice', options: [ 'short', 'full', 'auto' ], value: 'full' },
       { id: 'value', type: 'text', value: 'Type something...' },
     ],
   },
@@ -46,7 +47,7 @@ export default [
   {
     component: BlipDropdownScaffold,
     controls: [
-      { id: 'size', type: 'choice', options: [ 'short', 'full', 'auto' ], value: 'full' },
+      { id: 'width', type: 'choice', options: [ 'short', 'full', 'auto' ], value: 'full' },
       { id: 'selected', type: 'text', value: 'option1' },
       { id: 'disabled', type: 'boolean', value: false },
       {
@@ -62,7 +63,7 @@ export default [
   {
     component: BlipFileDropzoneScaffold,
     controls: [
-      { id: 'size', type: 'choice', options: [ 'short', 'full', 'auto' ], value: 'full' },
+      { id: 'width', type: 'choice', options: [ 'short', 'full', 'auto' ], value: 'full' },
       { id: 'accept', type: 'choice', options: [ '.xlsx', '.csv' ], value: '.xlsx' },
       { id: 'multiple', type: 'boolean', value: false },
     ],

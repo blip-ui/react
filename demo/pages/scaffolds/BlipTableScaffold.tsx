@@ -6,7 +6,7 @@ const randomLongText = (): string => {
   return Array.from({ length: 100 }, () => strings[ Math.floor(Math.random() * ( strings.length - 1 )) ]).join('');
 };
 
-const testRows: any[] = Array.from({ length: 2 }, (_, index) => ( {
+const testRows: any[] = Array.from({ length: 1000 }, (_, index) => ( {
   id: '' + index + 1,
   name: `Test ${ index + 1 }`,
   money: ( Math.random() * 1000 ).toFixed(2),

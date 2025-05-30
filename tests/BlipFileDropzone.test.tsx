@@ -46,9 +46,9 @@ describe('BlipFileDropzone', () => {
     expect(clickSpy).toHaveBeenCalled();
   });
 
-  it('accepts only CSV files', () => {
-    const { container } = render(<BlipFileDropzone/>);
+  it('accepts specific types of files', () => {
+    const { container } = render(<BlipFileDropzone accept=".xls"/>);
     const input = container.querySelector('input[type="file"]') as HTMLInputElement;
-    expect(input).toHaveAttribute('accept', '.csv');
+    expect(input).toHaveAttribute('accept', '.xls');
   });
 });

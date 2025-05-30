@@ -2,17 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { BlipInput } from '@lib';
 
 const BlipInputScaffold = (_props: any): React.ReactElement => {
-  const [ props, setProps ] = useState<any>({});
+  const [ props, setProps ] = useState<any>({ value: '' });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (_props?.onLogEvent) {
-      _props.onLogEvent(e.target.value);
-    }
+    _props.onLogEvent(e.target.value);
 
     setProps((prevState: any) => ( {
       ...prevState,
       value: e.target.value
     } ));
+  };
+
+  const onEditFinished = (value: string) => {
+    _props?.onLogEvent(value);
   };
 
   useEffect(() => {
@@ -23,6 +25,7 @@ const BlipInputScaffold = (_props: any): React.ReactElement => {
   }, [ _props?.defaultProps ]);
 
   return <BlipInput { ...props }
+                    onEditFinished={ onEditFinished }
                     onChange={ handleChange }
 
   />;

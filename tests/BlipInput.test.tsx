@@ -9,14 +9,14 @@ describe('BlipInput', () => {
     expect(screen.getByRole('textbox')).toBeInTheDocument();
   });
 
-  it('applies default size class', () => {
+  it('applies default width class', () => {
     const { container } = render(<BlipInput/>);
-    expect(container.querySelector('.BlipInput')).toHaveClass('BlipInput__size-auto');
+    expect(container.querySelector('.BlipInput')).toHaveClass('BlipInput__width-auto');
   });
 
-  it('applies custom size class', () => {
-    const { container } = render(<BlipInput size="full"/>);
-    expect(container.querySelector('.BlipInput')).toHaveClass('BlipInput__size-full');
+  it('applies custom width class', () => {
+    const { container } = render(<BlipInput width="full"/>);
+    expect(container.querySelector('.BlipInput')).toHaveClass('BlipInput__width-full');
   });
 
   it('passes through additional props to input element', () => {
