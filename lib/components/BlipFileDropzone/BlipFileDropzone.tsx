@@ -68,7 +68,7 @@ export const BlipFileDropzone = (props: any) => {
          onDrop={ handleDrop }
     >
       <BlipButton size={ props?.size }
-                  label={ 'Upload your file' }
+                  label={ props?.label ?? 'Upload your file' }
                   onClick={ handleClick }/>
       <input type="file"
              accept={ props?.accept }
