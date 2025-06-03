@@ -7,8 +7,23 @@ import BlipActionRowScaffold from '../pages/scaffolds/BlipActionRowScaffold.tsx'
 import BlipModalScaffold from '../pages/scaffolds/BlipModalScaffold.tsx';
 import BlipFileDropzoneScaffold from '../pages/scaffolds/BlipFileDropzoneScaffold.tsx';
 import BlipWallpaperScaffold from './scaffolds/BlipWallpaperScaffold.tsx';
+import BlipFrameScaffold from './scaffolds/BlipFrameScaffold.tsx';
+import BlipGridScaffold from './scaffolds/BlipGridScaffold.tsx';
 
 export default [
+  {
+    component: BlipGridScaffold,
+    controls: [
+      { id: 'columns', type: 'number', value: 2, min: 1, max: 5 },
+      { id: 'rows', type: 'number', value: 2, min: 1, max: 5 },
+    ],
+  },
+  {
+    component: BlipFrameScaffold,
+    controls: [
+      { id: 'title', type: 'text', value: 'Test title' },
+    ],
+  },
   {
     component: BlipTableScaffold,
     controls: [
@@ -66,6 +81,7 @@ export default [
     controls: [
       { id: 'width', type: 'choice', options: [ 'short', 'full', 'auto' ], value: 'full' },
       { id: 'accept', type: 'choice', options: [ '.xlsx', '.csv' ], value: '.xlsx' },
+      { id: 'label', type: 'text', value: 'Test upload your file' },
       { id: 'multiple', type: 'boolean', value: false },
     ],
   },

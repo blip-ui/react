@@ -2,6 +2,10 @@
 
 .BlipThemeProvider {
 
+    &--basic { @include s.theme(basic); }
+
+    &--inverted { @include s.theme(inverted); }
+
     font-size: x-large;
 
     * {
@@ -34,7 +38,4 @@
         display:     block;
     }
 
-    &--basic { @include s.theme(basic); }
-
-    &--inverted { @include s.theme(inverted); }
 }

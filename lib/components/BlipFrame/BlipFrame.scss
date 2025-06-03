@@ -1,0 +1,88 @@
+@use "sass:math";
+@use "@lib/styles" as s;
+
+$border-width:   3px;
+$inset-distance: 10px;
+$line-height:    10px;
+$title-height:   30px;
+
+.BlipFrame {
+    position:  absolute;
+    top:       0;
+    bottom:    0;
+    left:      0;
+    right:     0;
+    width:     100%;
+    height:    100%;
+    display:   flex;
+    flex-grow: 1;
+
+    &__wrapper {
+        position:   relative;
+        flex-grow:  1;
+        display:    block;
+        overflow:   hidden;
+        padding:    $inset-distance;
+        box-sizing: border-box;
+    }
+
+    &__title {
+        @include s.theme-aware("background", "background");
+        @include s.theme-aware("color", "text");
+
+        position:    absolute;
+        top:         calc(-#{math.div($title-height, 2)});
+        left:        $inset-distance;
+        padding:     0 10px;
+        height:      $title-height;
+        display:     flex;
+        align-items: center;
+        font-weight: bold;
+        z-index:     2;
+    }
+
+    &__content {
+        @include s.theme-aware("border-bottom-color", "background");
+
+        flex-grow:  1;
+        margin-top: 1em;
+        overflow-y: auto;
+        padding:    $inset-distance;
+
+        &__frame {
+            @include s.theme-aware("border-color", "background");
+
+            border:         #{$border-width * 2} double;
+            position:       relative;
+            display:        flex;
+            flex-direction: column;
+            height:         100%;
+            box-sizing:     border-box;
+
+            &::before,
+            &::after {
+                content:  "";
+                position: absolute;
+                left:     0;
+                right:    0;
+                height:   $border-width;
+            }
+
+            &::before {
+                top: calc(#{math.div($title-height, 2)} - #{$border-width});
+            }
+
+            &::after {
+                top: calc(-#{math.div($title-height, 2)} + #{$border-width});
+            }
+        }
+    }
+}
+
+
+.BlipGrid .BlipFrame {
+    position:  relative !important;
+    flex-grow: 1;
+    height:    100%;
+}
+
