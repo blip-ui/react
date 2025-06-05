@@ -6,11 +6,9 @@
 
     &--inverted { @include s.theme(inverted); }
 
-    font-size: x-large;
-
     * {
         font-family: "Courier New", monospace;
-        font-size:   inherit;
+        font-size: x-large;
 
         h1, h2, h3 {
             font-size: revert;

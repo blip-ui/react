@@ -47,7 +47,6 @@ $title-height:   30px;
         flex-grow:  1;
         margin-top: 1em;
         overflow-y: auto;
-        padding:    $inset-distance;
 
         &__frame {
             @include s.theme-aware("border-color", "background");
