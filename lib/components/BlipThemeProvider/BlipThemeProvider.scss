@@ -22,8 +22,8 @@
     }
 
     input:not([type="checkbox"]) {
-        @include s.theme-aware("background-color", "background");
-        @include s.theme-aware("color", "text");
+        @include s.theme-aware("background-color", "text");
+        @include s.theme-aware("color", "background");
 
         flex-grow:   1;
         font-family: "Courier New", monospace;
