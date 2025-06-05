@@ -7,13 +7,15 @@ $line-height:    10px;
 $title-height:   30px;
 
 .BlipFrame {
-    position:  absolute;
+    position:  relative;
     top:       0;
     bottom:    0;
     left:      0;
     right:     0;
     width:     100%;
     height:    100%;
+    min-height: 200px;
+    min-width: 200px;
     display:   flex;
     flex-grow: 1;
 

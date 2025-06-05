@@ -31,10 +31,16 @@ const BlipFrameScaffold = (_props: any): React.ReactElement => {
   }, [ _props?.defaultProps ]);
 
   return <BlipFrame { ...props } >
-    <BlipTable { ...props }
-               rows={ testRows }
-               columns={ columns }
-    /> </BlipFrame>;
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porta dui in nunc pellentesque luctus. Aenean id vehicula mauris. Etiam in risus bibendum, ornare sem congue, pellentesque orci. Praesent in massa nec nisl imperdiet auctor
+      vitae eget lacus. Pellentesque elementum purus sit amet ultrices porttitor. Praesent sit amet iaculis nulla, non elementum ligula. Sed augue augue, fringilla ac interdum at, dictum sit amet elit. Etiam elementum ultricies nisl vel
+      efficitur.</p>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porta dui in nunc pellentesque luctus. Aenean id vehicula mauris. Etiam in risus bibendum, ornare sem congue, pellentesque orci. Praesent in massa nec nisl imperdiet auctor
+      vitae eget lacus. Pellentesque elementum purus sit amet ultrices porttitor. Praesent sit amet iaculis nulla, non elementum ligula. Sed augue augue, fringilla ac interdum at, dictum sit amet elit. Etiam elementum ultricies nisl vel
+      efficitur.</p>
+
+  </BlipFrame>;
 
 };
 
