@@ -47,10 +47,10 @@ $title-height:   30px;
     &__content {
         @include s.theme-aware("border-bottom-color", "background");
 
-        padding:    $inset-distance;
         flex-grow:  1;
         margin-top: 1em;
         overflow-y: auto;
+        box-sizing: border-box;
 
         &__frame {
             @include s.theme-aware("border-color", "background");
@@ -61,6 +61,8 @@ $title-height:   30px;
             flex-direction: column;
             height:         100%;
             box-sizing:     border-box;
+            width:          100%;
+            max-width:      100%;
 
             &::before,
             &::after {
@@ -82,10 +84,11 @@ $title-height:   30px;
     }
 }
 
-
 .BlipGrid .BlipFrame {
-    position:  relative !important;
-    flex-grow: 1;
-    height:    100%;
+    position:   relative !important;
+    flex-grow:  1;
+    height:     100%;
+    width:      100%;
+    box-sizing: border-box;
 }
 
