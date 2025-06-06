@@ -2,6 +2,8 @@
 
 .BlipDropdown {
 
+    display: flex;
+
     &--disabled {
         @include s.theme-aware("background", "disabled");
         @include s.theme-aware("color", "white");

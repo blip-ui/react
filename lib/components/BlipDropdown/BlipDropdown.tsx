@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import './BlipDropdown.scss';
 import clsx from 'clsx';
 import { BlipButton } from '@lib';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faX } from '@fortawesome/free-solid-svg-icons';
 
 export const BlipDropdown: React.FC<any> = (props: any) => {
 
@@ -18,6 +20,16 @@ export const BlipDropdown: React.FC<any> = (props: any) => {
     }
     setSelectedOption(option);
     setIsOpen(false);
+  };
+
+  const onClearClicked = (e) => {
+    e.stopPropagation()
+    setSelectedOption(null);
+    setIsOpen(false);
+
+    if (props?.onChange) {
+      props.onChange(null);
+    }
   };
 
   useEffect(() => {
@@ -41,12 +53,12 @@ export const BlipDropdown: React.FC<any> = (props: any) => {
   }, [ props?.value, props?.options ]);
 
   return (
-    <BlipButton suffixText="+"
+    <BlipButton suffixText={ isOpen ? '-' : '+' }
+                prefixText={ selectedOption ? <FontAwesomeIcon onClick={ onClearClicked } icon={ faX } fixedWidth /> : null }
                 disableBump
                 ref={ dropdownRef }
                 onClick={ handleToggle }
-                { ...props }
-    >
+                { ...props } >
       <div className="BlipDropdown__selected">
         { selectedOption?.label ?? props?.label ?? 'Select an option' }
       </div>
