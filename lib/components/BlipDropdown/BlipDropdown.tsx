@@ -10,7 +10,7 @@ export const BlipDropdown: React.FC<any> = (props: any) => {
   const [ isOpen, setIsOpen ] = useState<boolean>(false);
   const [ selectedOption, setSelectedOption ] = useState<any | null>(null);
 
-  const dropdownRef = useRef<HTMLButtonElement>(null);
+  const dropdownRef: React.RefObject<HTMLButtonElement | null> = useRef<HTMLButtonElement | null>(null);
 
   const handleToggle = () => setIsOpen(!isOpen);
 
