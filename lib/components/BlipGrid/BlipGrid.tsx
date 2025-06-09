@@ -20,14 +20,15 @@ export interface BlipGridItemProps {
   columnSpan?: number;
 }
 
-export const BlipGridItem: React.FC<BlipGridItemProps> = ({
-                                                            title,
-                                                            children,
-                                                            row,
-                                                            column,
-                                                            rowSpan = 1,
-                                                            columnSpan = 1
-                                                          }) => {
+export const BlipGridItem: React.FC<BlipGridItemProps> = (
+  {
+    title,
+    children,
+    row,
+    column,
+    rowSpan = 1,
+    columnSpan = 1
+  }) => {
   const style: React.CSSProperties = {
     gridRow: `${ row } / span ${ rowSpan }`,
     gridColumn: `${ column } / span ${ columnSpan }`,
