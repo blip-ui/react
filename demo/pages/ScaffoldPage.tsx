@@ -117,7 +117,7 @@ const ScaffoldPage = () => {
 
 
   return (
-    <div className="ScaffoldPage-container">
+    <div className="ScaffoldPage">
 
       <ScaffoldMenu/>
 
