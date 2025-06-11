@@ -3,13 +3,14 @@
 .BlipThemeProvider {
 
     font-size: x-large;
+    font-family: "Courier New", monospace;
 
     &--basic { @include s.theme(basic); }
 
     &--inverted { @include s.theme(inverted); }
 
 
-    * {
+    > * {
         font-family: "Courier New", monospace;
         font-size: inherit;
 
@@ -28,8 +29,8 @@
         @include s.theme-aware("background-color", "text");
         @include s.theme-aware("color", "background");
 
-        flex-grow:   1;
         font-family: "Courier New", monospace;
+        flex-grow:   1;
         outline:     none;
         box-shadow:  5px 5px 0 0 darkgray;
         margin:      10px 5px 10px 0;
