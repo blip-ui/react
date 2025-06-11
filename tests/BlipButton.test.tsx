@@ -4,6 +4,7 @@ import '@testing-library/jest-dom';
 import { BlipButton } from '../lib';
 
 describe('BlipButton', () => {
+
   it('renders with label', () => {
     render(<BlipButton label="Click me"/>);
     expect(screen.getByText('Click me')).toBeInTheDocument();

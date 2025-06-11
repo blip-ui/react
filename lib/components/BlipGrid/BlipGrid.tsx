@@ -8,6 +8,7 @@ export interface BlipGridProps {
   rows: number;
   columns: number;
   gap?: string;
+  expandLastColumn?: boolean;
   className?: string;
 }
 
@@ -51,11 +52,14 @@ export const BlipGrid: React.FC<BlipGridProps> = (
     columns,
     gap = '0rem',
     className = '',
+    expandLastColumn = false
   }) => {
   const gridStyle: React.CSSProperties = {
     gap: gap,
     gridTemplateRows: `repeat(${ rows }, 1fr)`,
-    gridTemplateColumns: `repeat(${ columns }, 1fr)`,
+    gridTemplateColumns: expandLastColumn
+      ? `repeat(${ columns - 1 }, 1fr) auto`
+      : `repeat(${ columns }, 1fr)`,
   };
 
   return (

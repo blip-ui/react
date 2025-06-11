@@ -14,6 +14,7 @@ export default [
   {
     component: BlipGridScaffold,
     controls: [
+      { id: 'expandLastColumn', type: 'boolean', value: true },
       { id: 'columns', type: 'number', value: 2, min: 1, max: 5 },
       { id: 'rows', type: 'number', value: 2, min: 1, max: 5 },
     ],
