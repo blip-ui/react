@@ -8,7 +8,7 @@ interface BlipButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disableBump?: boolean;
   prefixText?: React.ReactNode;
   suffixText?: React.ReactNode;
-  label?: string;
+  label?: string | React.ReactNode;
 }
 
 export const BlipButton: React.FC<PropsWithChildren<BlipButtonProps>> = (
