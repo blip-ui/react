@@ -10,7 +10,7 @@
     &--inverted { @include s.theme(inverted); }
 
 
-    > * {
+    * {
         font-family: "Courier New", monospace;
         font-size: inherit;
 

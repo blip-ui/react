@@ -5,7 +5,7 @@ import { faBackward, faCaretDown, faCaretLeft, faCaretRight, faCaretUp, faForwar
 import { BlipInput } from '../BlipInput/BlipInput';
 import { dotNotationGet } from '../../utils';
 import clsx from 'clsx';
-import { BlipButton } from '@lib';
+import { BlipButton } from '../BlipButton/BlipButton';
 
 const BlipTableRow = React.memo((props: any) => {
   const { idx, row, columns, selectable, isRowSelected, handleRowClick, parseValue } = props;
@@ -135,12 +135,8 @@ export const BlipTable = (props: any) => {
     setSortColumn(prevSortColumn => {
       if (prevSortColumn === column) {
         setSortDirection(prevDirection => {
-          if (prevDirection === 'asc') {
-            return 'desc';
-          }
-          if (prevDirection === 'desc') {
-            return null;
-          }
+          if (prevDirection === 'asc') { return 'desc'; }
+          if (prevDirection === 'desc') { return null; }
           return 'asc';
         });
         return column;
