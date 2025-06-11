@@ -2,18 +2,31 @@ import React, { InputHTMLAttributes } from 'react';
 
 import './BlipInput.scss';
 import clsx from 'clsx';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 type BlipInputProps = InputHTMLAttributes<HTMLInputElement> & {
   width?: string;
+  clearable?: boolean;
   onEditFinished?: (value: string) => void;
+  onClear?: () => void;
 };
 
-export const BlipInput: React.FC<BlipInputProps> = ({
-                                                      width = 'auto',
-                                                      className,
-                                                      onEditFinished,
-                                                      ...inputProps
-                                                    }) => {
+export const BlipInput: React.FC<BlipInputProps> = (
+  {
+    width = 'auto',
+    className,
+    onEditFinished,
+    onClear,
+    clearable = false,
+    ...inputProps
+  }) => {
+
+  const handleClear = () => {
+    if (onClear) {
+      onClear();
+    }
+  };
 
   const handleEditFinished = (value: any) => {
     if (onEditFinished) {
@@ -33,10 +46,19 @@ export const BlipInput: React.FC<BlipInputProps> = ({
       'BlipInput__width-' + ( width ?? 'auto' ),
       className
     ) }>
-      <input className="BlipInput__input"
+      <input className={ clsx(
+        'BlipInput__input',
+        clearable ? 'BlipInput__input--clearable' : ''
+      ) }
              onBlur={ (e) => handleEditFinished(e.target.value) }
              onKeyDown={ handleKeyDown }
              { ...inputProps } />
+      { clearable && inputProps?.value ? (
+        <span className="BlipInput__clear-icon"
+              onClick={ handleClear } >
+          <FontAwesomeIcon icon={ faTimes }/>
+        </span>
+      ) : null }
     </div>
   );
 };

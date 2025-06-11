@@ -13,6 +13,15 @@ const BlipInputScaffold = (_props: any): React.ReactElement => {
     } ));
   };
 
+  const handleClear = () => {
+    _props.onLogEvent();
+
+    setProps((prevState: any) => ( {
+      ...prevState,
+      value: '',
+    } ));
+  };
+
   const onEditFinished = (value: string) => {
     _props?.onLogEvent(value);
   };
@@ -26,6 +35,7 @@ const BlipInputScaffold = (_props: any): React.ReactElement => {
 
   return <BlipInput { ...props }
                     onEditFinished={ onEditFinished }
+                    onClear={ handleClear }
                     onChange={ handleChange }
 
   />;

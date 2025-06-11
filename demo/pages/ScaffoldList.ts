@@ -52,6 +52,7 @@ export default [
     component: BlipInputScaffold,
     controls: [
       { id: 'width', type: 'choice', options: [ 'short', 'full', 'auto' ], value: 'full' },
+      { id: 'clearable', type: 'boolean', value: true },
       { id: 'value', type: 'text', value: 'Type something...' },
     ],
   },

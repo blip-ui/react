@@ -6,7 +6,6 @@ import Resizer from './components/Resizer/Resizer.tsx';
 import Controls from './components/Controls/Controls.tsx';
 import ScaffoldMenu from './components/ScaffoldMenu/ScaffoldMenu.tsx';
 import EventLog from './components/EventLog/EventLog.tsx';
-import clsx from 'clsx';
 import { useApp } from './contexts';
 import { BlipThemeProvider } from '@lib';
 
@@ -121,8 +120,8 @@ const ScaffoldPage = () => {
 
       <ScaffoldMenu/>
 
-      <div className="right-panel">
-        <div className="frame-panel" ref={ containerRef }>
+      <div className="ScaffoldPage__panel__right">
+        <div className="ScaffoldPage__panel__frame" ref={ containerRef }>
           <Resizer>
             <BlipThemeProvider>
               <Routes>
@@ -139,14 +138,14 @@ const ScaffoldPage = () => {
           </Resizer>
         </div>
 
-        <div className={ clsx('bottom-panel', 'Outside-Theme') }>
-          <div className="controls-panel">
+        <div className="ScaffoldPage__panel__bottom">
+          <div className="ScaffoldPage__panel__controls">
             <Controls controls={ controls }
                       defaultProps={ defaultProps }
                       onControlChange={ handleFieldChange }
             />
           </div>
-          <div className="events-panel">
+          <div className="ScaffoldPage__panel__events">
             <EventLog logs={ logs }/>
           </div>
         </div>
