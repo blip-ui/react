@@ -1,0 +1,64 @@
+@use "@lib/styles" as s;
+
+.BlipTree {
+    user-select: none;
+
+    &__node {
+        padding-left: 20px;
+    }
+
+    &__node-content {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding: 2px 0;
+
+        &:hover {
+            @include s.theme-aware("background", "background");
+            @include s.theme-aware("color", "text");
+        }
+    }
+
+    &__node-controls {
+        display: flex;
+        align-items: center;
+        min-width: 40px;
+    }
+
+    &__caret {
+        width: 20px;
+        display: inline-block;
+        cursor: pointer;
+        margin-right: 5px;
+    }
+
+    &__caret-placeholder {
+        width: 25px;
+        display: inline-block;
+    }
+
+    &__label {
+        margin-left: 5px;
+        flex-grow: 1;
+    }
+
+    &__children {
+        position: relative;
+        margin-left: 10px;
+        padding-left: 10px;
+
+        &::before {
+            @include s.theme-aware("background", "background");
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 2px; // Increased thickness
+        }
+    }
+
+    .BlipInput {
+        margin-right: 5px;
+    }
+}

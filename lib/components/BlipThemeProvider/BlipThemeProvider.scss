@@ -19,13 +19,15 @@
         }
     }
 
-    input[type="checkbox"] {
+    input[type="checkbox"],
+    input[type="radio"]
+    {
         height: 22px;
         width:  22px;
         cursor: pointer;
     }
 
-    input:not([type="checkbox"]) {
+    input:not([type="checkbox"]):not([type="radio"]) {
         @include s.theme-aware("background-color", "text");
         @include s.theme-aware("color", "background");
 

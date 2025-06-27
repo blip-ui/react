@@ -7,7 +7,7 @@ const themes = [ 'basic', 'inverted' ];
 
 const ScaffoldMenu = () => {
 
-  const scaffoldList: any[] = ScaffoldList.map((x: any) => ( { ...x, path: '/test/' + x.component.name } ));
+  const scaffoldList: any[] = ScaffoldList.map((x: any) => ( { ...x, path: '/test/' + x.component.name } )).sort((a: any, b: any) => a.component.name.localeCompare(b.component.name));
 
   const handleThemeChange = (e: any) => {
     const theme = e.target.value;

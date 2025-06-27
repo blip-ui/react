@@ -9,6 +9,7 @@ import BlipFileDropzoneScaffold from '../pages/scaffolds/BlipFileDropzoneScaffol
 import BlipWallpaperScaffold from './scaffolds/BlipWallpaperScaffold.tsx';
 import BlipFrameScaffold from './scaffolds/BlipFrameScaffold.tsx';
 import BlipGridScaffold from './scaffolds/BlipGridScaffold.tsx';
+import BlipTreeScaffold from './scaffolds/BlipTreeScaffold.tsx';
 
 export default [
   {
@@ -31,6 +32,12 @@ export default [
       { id: 'selectable', type: 'boolean', value: true },
       { id: 'paginated', type: 'boolean', value: true },
       { id: 'multiple', type: 'boolean', value: true },
+    ],
+  },
+  {
+    component: BlipTreeScaffold,
+    controls: [
+      { id: 'selectionMode',type: 'choice', options: ['single', 'multi', 'recursive' ], value: 'single' }
     ],
   },
   {

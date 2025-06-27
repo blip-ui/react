@@ -8,6 +8,7 @@ import { BlipInput as OriginalBlipInput } from './components/BlipInput/BlipInput
 import { BlipLoadingIndicator as OriginalBlipLoadingIndicator } from './components/BlipLoadingIndicator/BlipLoadingIndicator';
 import { BlipModal as OriginalBlipModal } from './components/BlipModal/BlipModal';
 import { BlipTable as OriginalBlipTable } from './components/BlipTable/BlipTable';
+import { BlipTree as OriginalBlipTree } from './components/BlipTree/BlipTree';
 import { BlipWallpaper as OriginalBlipWallpaper } from './components/BlipWallpaper/BlipWallpaper';
 
 import { withBlipTheme } from './components/BlipThemeProvider/BlipThemeProvider';
@@ -23,6 +24,7 @@ export const BlipInput = withBlipTheme(OriginalBlipInput);
 export const BlipLoadingIndicator = withBlipTheme(OriginalBlipLoadingIndicator);
 export const BlipModal = withBlipTheme(OriginalBlipModal);
 export const BlipTable = withBlipTheme(OriginalBlipTable);
+export const BlipTree = withBlipTheme(OriginalBlipTree);
 export const BlipWallpaper = withBlipTheme(OriginalBlipWallpaper);
 
 export { BlipThemeProvider } from './components/BlipThemeProvider/BlipThemeProvider';
