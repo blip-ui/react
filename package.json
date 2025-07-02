@@ -1,5 +1,5 @@
 {
-  "name": "@blip-ui/react",
+  "name": "@blip-ui/react-lib",
   "description": "React components for BLIP - an MS-DOS inspired react component library.",
   "author": "Chris Engelsma <chris.engelsma@gmail.com>",
   "version": "1.0.0",
@@ -11,7 +11,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/blip-ui/react.git"
+    "url": "git://github.com/blip-ui/react-lib.git"
   },
   "scripts": {
     "dev": "vite",

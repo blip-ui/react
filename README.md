@@ -61,6 +61,7 @@ function MyComponent() {
 | `BlipLoadingIndicator` | Loading spinner               | *No specific props*                                                                                                                                                                                                                            |
 | `BlipModal`            | Modal dialog                  | • `show`: boolean<br>• `onClose`: function<br>• `actions`: string[]                                                                                                                                                                            |
 | `BlipTable`            | Data table                    | • `columns`: Array<{label: string, field: string}><br>• `rows`: Array<object><br>• `onRowClick`: function(row: object)                                                                                                                         |
+| `BlipTree`             | Tree view component           | • `data`: TreeNode<br>• `selectionMode`: 'single' \| 'multi' \| 'recursive'<br>• `onSelectionChange`: function(selectedIds: string[])<br>• `alwaysExpanded`: boolean                                                                           |
 
 Each component is designed to mimic MS-DOS aesthetics while providing modern React functionality. Refer to individual component documentation for detailed usage instructions.
 
