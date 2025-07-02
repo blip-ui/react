@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 import './BlipTree.scss';
 import { BlipInput } from '../BlipInput/BlipInput';
+import clsx from 'clsx';
 
 export interface TreeNode {
   id: string;
@@ -17,19 +18,24 @@ interface BlipTreeProps {
   data: TreeNode;
   selectionMode?: SelectionMode;
   onSelectionChange?: (selectedIds: string[]) => void;
+  alwaysExpanded?: boolean;
 }
+
 const BlipTreeNode: React.FC<{
   node: TreeNode;
   selectedIds: string[];
   onSelect: (id: string, isSelected: boolean) => void;
   selectionMode: SelectionMode;
   level: number;
-}> = ({ node, selectedIds, onSelect, selectionMode, level }) => {
+  alwaysExpanded: boolean;
+}> = ({ node, selectedIds, onSelect, selectionMode, level, alwaysExpanded }) => {
   const [ isExpanded, setIsExpanded ] = useState(false);
 
   const toggleExpand = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setIsExpanded(!isExpanded);
+    if (!alwaysExpanded) {
+      e.stopPropagation();
+      setIsExpanded(!isExpanded);
+    }
   };
 
   const handleSelect = (e: React.MouseEvent) => {
@@ -48,7 +54,10 @@ const BlipTreeNode: React.FC<{
   const isSelected = selectedIds.includes(node.id);
 
   return (
-    <div className="BlipTree__node" style={ { paddingLeft: `${ level * 20 }px` } }>
+    <div className={ clsx(
+      'BlipTree__node',
+      alwaysExpanded ? 'BlipTree__node--always-expanded' : '',
+      ) } style={ { paddingLeft: `${ level * 20 }px` } }>
       <div className="BlipTree__node-content" onClick={ handleSelect }>
         <div className="BlipTree__node-controls">
           { node.children && node.children.length > 0 ? (
@@ -79,6 +88,7 @@ const BlipTreeNode: React.FC<{
                           onSelect={ onSelect }
                           selectionMode={ selectionMode }
                           level={ level + 1 }
+                          alwaysExpanded={ alwaysExpanded }
             />
           )) }
         </div>
@@ -87,7 +97,7 @@ const BlipTreeNode: React.FC<{
   );
 };
 
-export const BlipTree: React.FC<BlipTreeProps> = ({ data, selectionMode = 'single', onSelectionChange }) => {
+export const BlipTree: React.FC<BlipTreeProps> = ({ data, selectionMode = 'single', onSelectionChange, alwaysExpanded = false }) => {
   const [ selectedIds, setSelectedIds ] = useState<string[]>([]);
 
   const getDescendantIds = useCallback((node: TreeNode): string[] => {
@@ -145,6 +155,7 @@ export const BlipTree: React.FC<BlipTreeProps> = ({ data, selectionMode = 'singl
         onSelect={ handleSelect }
         selectionMode={ selectionMode }
         level={ 0 }
+        alwaysExpanded={ alwaysExpanded }
       />
     </div>
   );
