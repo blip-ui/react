@@ -37,7 +37,8 @@ export default [
   {
     component: BlipTreeScaffold,
     controls: [
-      { id: 'selectionMode',type: 'choice', options: ['single', 'multi', 'recursive' ], value: 'single' }
+      { id: 'selectionMode', type: 'choice', options: [ 'single', 'multi', 'recursive' ], value: 'single' },
+      { id: 'alwaysExpanded', type: 'boolean', value: true }
     ],
   },
   {

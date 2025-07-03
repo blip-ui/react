@@ -5,14 +5,14 @@ import './BlipTree.scss';
 import { BlipInput } from '../BlipInput/BlipInput';
 import clsx from 'clsx';
 
+type SelectionMode = 'single' | 'multi' | 'recursive';
+
 export interface TreeNode {
   id: string;
   label: string;
   selectable?: boolean;
   children?: TreeNode[];
 }
-
-type SelectionMode = 'single' | 'multi' | 'recursive';
 
 interface BlipTreeProps {
   data: TreeNode;
@@ -30,6 +30,12 @@ const BlipTreeNode: React.FC<{
   alwaysExpanded: boolean;
 }> = ({ node, selectedIds, onSelect, selectionMode, level, alwaysExpanded }) => {
   const [ isExpanded, setIsExpanded ] = useState(false);
+
+  React.useEffect(() => {
+    if (alwaysExpanded) {
+      setIsExpanded(true);
+    }
+  }, [ alwaysExpanded ]);
 
   const toggleExpand = (e: React.MouseEvent) => {
     if (!alwaysExpanded) {
